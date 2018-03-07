@@ -47,6 +47,7 @@ public class TransLayoutManager {
      * @param clickListener 点击事件
      */
     public static void showErrorView(Activity activity, ViewGroup parentLayout, View.OnClickListener clickListener) {
+        removeAllView(parentLayout);
         View layoutView = LayoutInflater.from(activity).inflate(R.layout.layout_error, null);
         ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutView.setId(ID_ERROR);
@@ -60,9 +61,15 @@ public class TransLayoutManager {
      */
     public static void removeErrorView(Activity activity) {
         ViewGroup contentView = activity.findViewById(android.R.id.content);
-        contentView.removeView(contentView.findViewById(ID_ERROR));
+        removeErrorView(contentView);
     }
 
+    /**
+     * 移除网络异常布局
+     */
+    public static void removeErrorView(ViewGroup viewGroup) {
+        viewGroup.removeView(viewGroup.findViewById(ID_ERROR));
+    }
 
     /**
      * 显示网络加载布局
@@ -74,6 +81,7 @@ public class TransLayoutManager {
     }
 
     public static void showLoadingView(Activity activity, ViewGroup parentLayout) {
+        removeAllView(parentLayout);
         View layoutView = LayoutInflater.from(activity).inflate(R.layout.layout_loading, null);
         ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutView.setId(ID_LOADING);
@@ -85,24 +93,25 @@ public class TransLayoutManager {
         setText(layoutView, resBean.getLoadText());
     }
 
-
-
-    /**
-     * 移除网络加载中布局
-     */
-    public static void removeNoneView(Activity activity) {
-        ViewGroup contentView = activity.findViewById(android.R.id.content);
-        contentView.removeView(contentView.findViewById(ID_LOADING));
-    }
-
     /**
      * 移除网络加载中布局
      */
     public static void removeLoadingView(Activity activity) {
         ViewGroup contentView = activity.findViewById(android.R.id.content);
-        contentView.removeView(contentView.findViewById(ID_NONE));
+        removeLoadingView(contentView);
     }
 
+    /**
+     * 移除网络加载中布局
+     */
+    public static void removeLoadingView(ViewGroup view) {
+        view.removeView(view.findViewById(ID_LOADING));
+    }
+
+    /**
+     * 显示其他信息提示布局
+     * @param activity
+     */
     public static void showNoneView(Activity activity) {
         showNoneView(activity,getContentView(activity),resBean.getNoneText());
     }
@@ -125,7 +134,20 @@ public class TransLayoutManager {
     }
 
 
+    /**
+     * 移除网络异常布局
+     */
+    public static void removeNoneView(Activity activity) {
+        ViewGroup contentView = activity.findViewById(android.R.id.content);
+        removeNoneView(contentView);
+    }
 
+    /**
+     * 移除网络异常布局
+     */
+    public static void removeNoneView(ViewGroup viewGroup) {
+        viewGroup.removeView(viewGroup.findViewById(ID_NONE));
+    }
 
 
     /**
@@ -137,12 +159,9 @@ public class TransLayoutManager {
      */
     private static void setInfo(View layoutView, String str, int imageRes) {
         ImageView image = layoutView.findViewById(R.id.iv_trans);
-        TextView textView = layoutView.findViewById(R.id.tv_trans);
         image.setImageResource(imageRes);
-        textView.setText(str);
-        textView.setTextSize(resBean.getTextSize());
-        textView.setTextSize(resBean.getTextSize());
-        textView.setTextColor(resBean.getTextColor());
+
+        setText(layoutView,str);
     }
 
     private static void setText(View layoutView, String str) {
@@ -153,9 +172,14 @@ public class TransLayoutManager {
         textView.setTextColor(resBean.getTextColor());
     }
 
-
     private static ViewGroup getContentView(Activity activity) {
         return activity.findViewById(android.R.id.content);
+    }
+
+    public static void removeAllView(ViewGroup viewGroup){
+        removeLoadingView(viewGroup);
+        removeErrorView(viewGroup);
+        removeNoneView(viewGroup);
     }
 
 }

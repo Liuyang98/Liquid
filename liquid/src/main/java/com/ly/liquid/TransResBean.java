@@ -61,7 +61,6 @@ public class TransResBean {
         return this;
     }
 
-    //TODO dp,sp处理
     public TransResBean setTextSize(int textSize) {
         this.textSize = textSize;
         return this;
