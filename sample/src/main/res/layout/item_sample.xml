@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
     android:gravity="center"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:orientation="vertical">
 
     <TextView
-        android:paddingLeft="10dp"
-        android:textSize="15dp"
-        android:textColor="#ff666666"
         android:id="@+id/tv_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="测试文本"/>
+        android:paddingLeft="10dp"
+        android:text="测试文本"
+        android:textColor="#ff666666"
+        android:textSize="15dp" />
 
 </LinearLayout>

@@ -10,7 +10,7 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/iv_gif"
-        android:src="@mipmap/loading_fresco"
+        android:src="@mipmap/loading"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         />

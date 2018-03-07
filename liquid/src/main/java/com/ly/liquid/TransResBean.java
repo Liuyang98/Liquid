@@ -3,8 +3,6 @@ package com.ly.liquid;
 /**
  * Created by yangl.liu on 2018/3/6.
  */
-
-
 public class TransResBean {
     private int errorIamge;
     private int loadImage;

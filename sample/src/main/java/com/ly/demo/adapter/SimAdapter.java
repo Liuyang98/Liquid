@@ -24,7 +24,7 @@ public class SimAdapter extends BaseRecyclerAdapter<SimAdapter.SimHolder> {
 
     @Override
     public SimHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new SimHolder(initView(parent, R.layout.item_sim));
+        return new SimHolder(initView(parent, R.layout.item_sample));
     }
 
     @Override

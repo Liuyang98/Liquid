@@ -8,11 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.ly.demo.R;
 import com.ly.demo.adapter.SimAdapter;
-import com.ly.liquid.TransLayoutManager;
+import com.ly.liquid.Liquid;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,13 +69,13 @@ public class SimFragment extends BaselazyLoadFragment {
     }
 
     private void loadData() {
-        TransLayoutManager.showLoadingView(getActivity(), (ViewGroup) view);
+        Liquid.showLoadingView((ViewGroup) view);
         swipe.postDelayed(new Runnable() {
             @Override
             public void run() {
                 rv.setAdapter(adapter);
                 swipe.setRefreshing(false);
-                TransLayoutManager.removeLoadingView((ViewGroup) view);
+                Liquid.removeLoadingView((ViewGroup) view);
             }
         }, 1000);
     }
