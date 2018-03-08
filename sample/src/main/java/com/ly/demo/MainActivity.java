@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.ly.demo.adapter.SimPagerAdapter;
 import com.ly.demo.fragment.LoadErrorFragment;
-import com.ly.demo.fragment.SimFragment;
+import com.ly.demo.fragment.SimpleFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentList.add(new LoadErrorFragment());
         titleList.add("页面z:");
         for (int i = 0; i < 6; i++) {
-            fragmentList.add(new SimFragment().setType(i));
+            fragmentList.add(new SimpleFragment().setType(i));
             titleList.add("页面:" + i);
         }
         vp.setAdapter(new SimPagerAdapter(getSupportFragmentManager(), fragmentList, titleList));

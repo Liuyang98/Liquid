@@ -2,5 +2,5 @@
 <resources>
     <item type="id" name="loading_view"/>
     <item type="id" name="error_view"/>
-    <item type="id" name="none_view"/>
+    <item type="id" name="custom_view"/>
 </resources>

@@ -8,10 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.ly.demo.R;
 import com.ly.demo.adapter.SimAdapter;
+import com.ly.liquid.CustomView;
+import com.ly.liquid.CustomViewBuilder;
 import com.ly.liquid.Liquid;
+import com.ly.liquid.LiquidUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +54,8 @@ public class LoadErrorFragment extends BaseFragment {
         }
     }
 
+    private CustomView customView;
+
     private void initRecy() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         adapter = new SimAdapter(getContext(), mDatas);
@@ -61,7 +67,25 @@ public class LoadErrorFragment extends BaseFragment {
                 loadData();
             }
         });
-        showError();
+
+            loadData();
+/*
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "测试", Toast.LENGTH_SHORT).show();
+                customView.remove(view);
+            }
+        };
+
+        customView = new CustomViewBuilder()
+                .setViewGroup(view)
+                .setImageRes(R.mipmap.trans_none)
+                .setClickListener(listener)
+                .build()
+                .show();
+*/
+
     }
 
     private void loadData() {
@@ -70,7 +94,7 @@ public class LoadErrorFragment extends BaseFragment {
             @Override
             public void run() {
                 if (flag) {
-                    Liquid.removeAllView(view);
+                    LiquidUtil.removeAllView(view);
                     rv.setAdapter(adapter);
                     swipe.setRefreshing(false);
                 } else {

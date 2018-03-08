@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.ly.demo.R;
 import com.ly.liquid.Liquid;
-import com.ly.liquid.TransResBean;
+import com.ly.liquid.LiquidStyle;
 
 /**
  * Created by yangl.liu on 2018/3/7.
@@ -19,9 +19,7 @@ public class MyApplication extends Application {
     }
 
     private void initTrans() {
-        TransResBean transResBean = TransResBean.getInstance();
-        //也可以改成构造方法方式
-        transResBean
+        LiquidStyle liStyle=    LiquidStyle.getDefault()
                 .setErrorIamge(R.mipmap.trans_fail)
                 .setLoadImage(R.mipmap.trans_loading)
                 .setNoneImage(R.mipmap.trans_none)
@@ -30,6 +28,6 @@ public class MyApplication extends Application {
                 .setNoneText("没有找到内容")
                 .setTextColor(0xffdddddd)
                 .setTextSize(20);
-        Liquid.init(transResBean);
+        Liquid.init(liStyle);
     }
 }

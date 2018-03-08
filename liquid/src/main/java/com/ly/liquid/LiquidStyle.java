@@ -2,8 +2,9 @@ package com.ly.liquid;
 
 /**
  * Created by yangl.liu on 2018/3/6.
+ * 资源风格控制 ---名称需修改
  */
-public class TransResBean {
+public class LiquidStyle {
     private int errorIamge;
     private int loadImage;
     private int noneImage;
@@ -17,54 +18,51 @@ public class TransResBean {
     //还需要无网络和网络异常的区分，背景色
     //模式，宽高
 
-    private static TransResBean transResBean;
+    private static LiquidStyle transResBean;
 
-    public static TransResBean getInstance() {
+    public static LiquidStyle getDefault() {
         if (transResBean == null) {
-            transResBean = new TransResBean();
+            transResBean = new LiquidStyle();
         }
         return transResBean;
     }
 
-    private TransResBean() {
-    }
-
-    public TransResBean setErrorIamge(int errorIamge) {
+    public LiquidStyle setErrorIamge(int errorIamge) {
         this.errorIamge = errorIamge;
         return this;
     }
 
-    public TransResBean setLoadImage(int loadImage) {
+    public LiquidStyle setLoadImage(int loadImage) {
         this.loadImage = loadImage;
         return this;
     }
 
-    public TransResBean setNoneImage(int noneImage) {
+    public LiquidStyle setNoneImage(int noneImage) {
         this.noneImage = noneImage;
         return this;
     }
 
-    public TransResBean setErrorText(String errorText) {
+    public LiquidStyle setErrorText(String errorText) {
         this.errorText = errorText;
         return this;
     }
 
-    public TransResBean setLoadText(String loadText) {
+    public LiquidStyle setLoadText(String loadText) {
         this.loadText = loadText;
         return this;
     }
 
-    public TransResBean setNoneText(String noneText) {
+    public LiquidStyle setNoneText(String noneText) {
         this.noneText = noneText;
         return this;
     }
 
-    public TransResBean setTextSize(int textSize) {
+    public LiquidStyle setTextSize(int textSize) {
         this.textSize = textSize;
         return this;
     }
 
-    public TransResBean setTextColor(int textColor) {
+    public LiquidStyle setTextColor(int textColor) {
         this.textColor = textColor;
         return this;
     }

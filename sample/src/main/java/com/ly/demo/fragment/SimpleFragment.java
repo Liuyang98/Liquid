@@ -20,7 +20,7 @@ import java.util.List;
  * Created by yangl.liu on 2018/3/7.
  */
 
-public class SimFragment extends BaselazyLoadFragment {
+public class SimpleFragment extends BaselazyLoadFragment {
     private View view;
     private RecyclerView rv;
     private SimAdapter adapter;
@@ -60,6 +60,9 @@ public class SimFragment extends BaselazyLoadFragment {
         });
     }
 
+    /**
+     * 懒加载方法
+     */
     @Override
     protected void lazyLoad() {
         if (!checkLazy()) {
