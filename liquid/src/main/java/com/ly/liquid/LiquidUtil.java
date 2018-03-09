@@ -21,10 +21,11 @@ public class LiquidUtil {
      * @param viewGroup
      */
     public static void removeAllView(ViewGroup viewGroup) {
-        viewGroup.removeView(viewGroup.findViewById(Liquid.ID_CUSTOM));
-        viewGroup.removeView(viewGroup.findViewById(Liquid.ID_ERROR));
-        viewGroup.removeView(viewGroup.findViewById(Liquid.ID_LOADING));
+        viewGroup.removeView(viewGroup.findViewById(Liquid.VIEW_CUSTOM));
+        viewGroup.removeView(viewGroup.findViewById(Liquid.VIEW_ERROR));
+        viewGroup.removeView(viewGroup.findViewById(Liquid.VIEW_LOADING));
     }
+
     /**
      * 填充事务面板
      *
@@ -63,5 +64,15 @@ public class LiquidUtil {
         textView.setText(str);
         textView.setTextSize(style.getTextSize());
         textView.setTextColor(style.getTextColor());
+    }
+
+    /**
+     * 获取 Content控件
+     *
+     * @param activity
+     * @return
+     */
+    public static ViewGroup getContentView(Activity activity) {
+        return activity.findViewById(android.R.id.content);
     }
 }

@@ -1,5 +1,6 @@
 package com.ly.demo.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,8 +13,6 @@ import android.widget.Toast;
 
 import com.ly.demo.R;
 import com.ly.demo.adapter.SimAdapter;
-import com.ly.liquid.CustomView;
-import com.ly.liquid.CustomViewBuilder;
 import com.ly.liquid.Liquid;
 import com.ly.liquid.LiquidUtil;
 
@@ -40,6 +39,7 @@ public class LoadErrorFragment extends BaseFragment {
             mView = inflater.inflate(R.layout.fragment_simaple, container, false);
             init();
             initRecy();
+            showCustomView();
         }
         return mView;
     }
@@ -54,8 +54,6 @@ public class LoadErrorFragment extends BaseFragment {
         }
     }
 
-    private CustomView customView;
-
     private void initRecy() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         adapter = new SimAdapter(getContext(), mDatas);
@@ -68,24 +66,25 @@ public class LoadErrorFragment extends BaseFragment {
             }
         });
 
-            loadData();
-/*
-        View.OnClickListener listener = new View.OnClickListener() {
+    }
+
+
+    private void showCustomView() {
+        View.OnClickListener listener=new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "测试", Toast.LENGTH_SHORT).show();
-                customView.remove(view);
+                Liquid.removeErrorView((ViewGroup) mView);
             }
         };
 
-        customView = new CustomViewBuilder()
-                .setViewGroup(view)
-                .setImageRes(R.mipmap.trans_none)
+//        showCustomView
+/*       new Liquid.Builder()
+                .setText("测试文案")
                 .setClickListener(listener)
-                .build()
-                .show();
-*/
-
+                .build((ViewGroup) mView)
+                .showCustomView();*/
+        Liquid.showCustomView((ViewGroup) mView);
+//        Liquid.showErrorView((Activity) mContext,listener);
     }
 
     private void loadData() {

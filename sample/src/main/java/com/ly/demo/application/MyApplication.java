@@ -19,7 +19,7 @@ public class MyApplication extends Application {
     }
 
     private void initTrans() {
-        LiquidStyle liStyle=    LiquidStyle.getDefault()
+       LiquidStyle.init()
                 .setErrorIamge(R.mipmap.trans_fail)
                 .setLoadImage(R.mipmap.trans_loading)
                 .setNoneImage(R.mipmap.trans_none)
@@ -28,6 +28,5 @@ public class MyApplication extends Application {
                 .setNoneText("没有找到内容")
                 .setTextColor(0xffdddddd)
                 .setTextSize(20);
-        Liquid.init(liStyle);
     }
 }

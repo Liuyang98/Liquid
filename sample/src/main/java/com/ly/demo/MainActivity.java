@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.ly.demo.adapter.SimPagerAdapter;
 import com.ly.demo.fragment.LoadErrorFragment;
@@ -44,5 +45,6 @@ public class MainActivity extends AppCompatActivity {
         }
         vp.setAdapter(new SimPagerAdapter(getSupportFragmentManager(), fragmentList, titleList));
         tabLayout.setupWithViewPager(vp);
+        vp.setVisibility(View.VISIBLE);
     }
 }

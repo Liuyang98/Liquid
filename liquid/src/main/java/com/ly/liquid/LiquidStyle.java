@@ -27,6 +27,10 @@ public class LiquidStyle {
         return transResBean;
     }
 
+    public static LiquidStyle init(){
+        return getDefault();
+    }
+
     public LiquidStyle setErrorIamge(int errorIamge) {
         this.errorIamge = errorIamge;
         return this;
