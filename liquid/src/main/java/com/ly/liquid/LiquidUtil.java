@@ -12,10 +12,10 @@ import pl.droidsonroids.gif.GifImageView;
 
 /**
  * Created by yangl.liu on 2018/3/8.
+ * 工具类，用于填充信息和提供静态方法
  */
 
 public class LiquidUtil {
-
     /**
      * 填充事务面板
      *
@@ -24,15 +24,16 @@ public class LiquidUtil {
      * @param imageRes
      */
     public static void setInfo(View layoutView, String str, int imageRes) {
-        setText(layoutView, str);
         ImageView image = layoutView.findViewById(R.id.iv_trans);
         image.setImageResource(imageRes);
+        setText(layoutView, str);
     }
 
     /**
      * 填充GIF面板
+     *
      * @param layoutView 父容器
-     * @param rid GIF资源
+     * @param rid        GIF资源
      */
     public static void setGifInfo(View layoutView, int rid) {
         //播放gif动画
@@ -60,6 +61,10 @@ public class LiquidUtil {
     public static void setText(View layoutView, String str) {
         LiquidStyle style = LiquidStyle.getDefault();
         TextView textView = layoutView.findViewById(R.id.tv_trans);
+        if (textView == null) {
+            Log.e("LiquidUtil", "not found textView");
+            return;
+        }
         textView.setText(str);
         textView.setTextSize(style.getTextSize());
         textView.setTextColor(style.getTextColor());

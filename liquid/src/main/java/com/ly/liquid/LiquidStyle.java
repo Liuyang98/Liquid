@@ -2,7 +2,7 @@ package com.ly.liquid;
 
 /**
  * Created by yangl.liu on 2018/3/6.
- * 资源风格控制 ---名称需修改
+ * 全局风格控制类
  */
 public class LiquidStyle {
     private int errorIamge;
@@ -22,12 +22,16 @@ public class LiquidStyle {
 
     public static LiquidStyle getDefault() {
         if (transResBean == null) {
-            transResBean = new LiquidStyle();
+            synchronized (LiquidStyle.class) {
+                if (transResBean == null) {
+                    transResBean = new LiquidStyle();
+                }
+            }
         }
         return transResBean;
     }
 
-    public static LiquidStyle init(){
+    public static LiquidStyle init() {
         return getDefault();
     }
 
@@ -70,7 +74,6 @@ public class LiquidStyle {
         this.textColor = textColor;
         return this;
     }
-
 
     public int getErrorIamge() {
         return errorIamge;

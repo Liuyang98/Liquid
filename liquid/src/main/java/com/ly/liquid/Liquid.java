@@ -11,13 +11,12 @@ import android.view.ViewGroup;
  * 总功能类，提供了默认静态类，也可以通过Builder创建实例
  */
 public class Liquid {
-    public static final int VIEW_LIQUID = R.id.liquid_view;
-
-    private static LiquidStyle liStyle = LiquidStyle.getDefault();
-    private LiquidParams params;
+    private static final int VIEW_LIQUID = R.id.liquid_view;
+    private static final LiquidStyle liStyle = LiquidStyle.getDefault();
     private static Liquid defaultInstance;
+    private LiquidParams params;
 
-    public static Liquid getDefault() {
+    private static Liquid getDefault() {
         if (defaultInstance == null) {
             synchronized (Liquid.class) {
                 if (defaultInstance == null) {
@@ -145,8 +144,7 @@ public class Liquid {
         LiquidUtil.setGifInfo(layoutView, imageRes);
     }
 
-//TODO 因为ID只有一个，所以只能是每次添加控件之间，进行移除前一项
-
+    //TODO 因为ID只有一个，所以只能是每次添加控件之间，进行移除前一项
     /**
      * 移除网络异常布布局——Actvitiy
      */
