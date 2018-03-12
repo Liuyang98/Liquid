@@ -21,7 +21,7 @@ public class MyApplication extends Application {
     private void initTrans() {
        LiquidStyle.init()
                 .setErrorIamge(R.mipmap.trans_fail)
-                .setLoadImage(R.mipmap.trans_loading)
+                .setLoadImage(R.mipmap.loading)
                 .setNoneImage(R.mipmap.trans_none)
                 .setErrorText("网络加载异常")
                 .setLoadText("加载中")

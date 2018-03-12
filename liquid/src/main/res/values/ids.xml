@@ -3,4 +3,5 @@
     <item type="id" name="loading_view"/>
     <item type="id" name="error_view"/>
     <item type="id" name="custom_view"/>
+    <item type="id" name="liquid_view"/>
 </resources>

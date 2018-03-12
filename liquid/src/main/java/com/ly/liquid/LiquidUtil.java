@@ -1,6 +1,7 @@
 package com.ly.liquid;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,17 +17,6 @@ import pl.droidsonroids.gif.GifImageView;
 public class LiquidUtil {
 
     /**
-     * 删除框架添加的布局控件
-     *
-     * @param viewGroup
-     */
-    public static void removeAllView(ViewGroup viewGroup) {
-        viewGroup.removeView(viewGroup.findViewById(Liquid.VIEW_CUSTOM));
-        viewGroup.removeView(viewGroup.findViewById(Liquid.VIEW_ERROR));
-        viewGroup.removeView(viewGroup.findViewById(Liquid.VIEW_LOADING));
-    }
-
-    /**
      * 填充事务面板
      *
      * @param layoutView
@@ -40,16 +30,25 @@ public class LiquidUtil {
     }
 
     /**
-     * 填充Loading事务面板
-     *
-     * @param layoutView
+     * 填充GIF面板
+     * @param layoutView 父容器
+     * @param rid GIF资源
      */
-    public static void setGifInfo(View layoutView) {
-        setText(layoutView, LiquidStyle.getDefault().getLoadText());
+    public static void setGifInfo(View layoutView, int rid) {
         //播放gif动画
         GifImageView gifImageView = layoutView.findViewById(R.id.iv_gif);
+        if (gifImageView == null) {
+            Log.e("LiquidUtil", "not found gifView");
+            return;
+        }
+        gifImageView.setImageResource(rid);
         GifDrawable gifDrawable = (GifDrawable) gifImageView.getDrawable();
+        if (gifDrawable == null) {
+            Log.e("LiquidUtil", "not found gifDrawable");
+            return;
+        }
         gifDrawable.start();
+        setText(layoutView, LiquidStyle.getDefault().getLoadText());
     }
 
     /**

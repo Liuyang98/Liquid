@@ -78,7 +78,7 @@ public class SimpleFragment extends BaselazyLoadFragment {
             public void run() {
                 rv.setAdapter(adapter);
                 swipe.setRefreshing(false);
-                Liquid.removeLoadingView((ViewGroup) view);
+                Liquid.clear((ViewGroup) view);
             }
         }, 1000);
     }

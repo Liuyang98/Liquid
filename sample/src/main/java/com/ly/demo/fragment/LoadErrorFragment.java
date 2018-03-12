@@ -73,7 +73,8 @@ public class LoadErrorFragment extends BaseFragment {
         View.OnClickListener listener=new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Liquid.removeErrorView((ViewGroup) mView);
+                Liquid.clear((Activity) mContext);
+                loadData();
             }
         };
 
@@ -83,8 +84,14 @@ public class LoadErrorFragment extends BaseFragment {
                 .setClickListener(listener)
                 .build((ViewGroup) mView)
                 .showCustomView();*/
-        Liquid.showCustomView((ViewGroup) mView);
+//        Liquid.showCustomView((ViewGroup) mView);
 //        Liquid.showErrorView((Activity) mContext,listener);
+
+        new Liquid.Builder()
+                .setClickListener(listener)
+                .build((Activity) mContext)
+                .showErrorView();
+//        Liquid.showLoadingView((ViewGroup) mView);
     }
 
     private void loadData() {
@@ -93,7 +100,7 @@ public class LoadErrorFragment extends BaseFragment {
             @Override
             public void run() {
                 if (flag) {
-                    LiquidUtil.removeAllView(view);
+                    Liquid.clear(view);
                     rv.setAdapter(adapter);
                     swipe.setRefreshing(false);
                 } else {
