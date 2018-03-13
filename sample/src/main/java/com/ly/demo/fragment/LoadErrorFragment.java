@@ -65,7 +65,6 @@ public class LoadErrorFragment extends BaseFragment {
                 loadData();
             }
         });
-
     }
 
 
@@ -78,20 +77,10 @@ public class LoadErrorFragment extends BaseFragment {
             }
         };
 
-//        showCustomView
-/*       new Liquid.Builder()
-                .setText("测试文案")
-                .setClickListener(listener)
-                .build((ViewGroup) mView)
-                .showCustomView();*/
-//        Liquid.showCustomView((ViewGroup) mView);
-//        Liquid.showErrorView((Activity) mContext,listener);
-
         new Liquid.Builder()
                 .setClickListener(listener)
                 .build((Activity) mContext)
                 .showErrorView();
-//        Liquid.showLoadingView((ViewGroup) mView);
     }
 
     private void loadData() {

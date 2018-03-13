@@ -52,6 +52,7 @@ public class Liquid {
         String errContent = params.tipText == null ? liStyle.getErrorText() : params.tipText;
         int errImageRes = params.tipImageRes == 0 ? liStyle.getErrorIamge() : params.tipImageRes;
         showClickLayout(params.parentLayout, errContent, errImageRes, params.listener);
+
         return this;
     }
 
@@ -92,7 +93,8 @@ public class Liquid {
             return;
         }
         Liquid.clear(viewGroup);
-        View layoutView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_error, null);
+        int clickRid=liStyle.getClickLayoutRes()==0?R.layout.liquid_default_layout_error:liStyle.getClickLayoutRes();
+        View layoutView = LayoutInflater.from(viewGroup.getContext()).inflate(clickRid, null);
         ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutView.setId(VIEW_LIQUID);
 
@@ -136,7 +138,8 @@ public class Liquid {
             return;
         }
         Liquid.clear(viewGroup);
-        View layoutView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_loading, null);
+        int loadingRid=liStyle.getGifLayoutRes()==0?R.layout.liquid_default_layout_loading:liStyle.getGifLayoutRes();
+        View layoutView = LayoutInflater.from(viewGroup.getContext()).inflate(loadingRid, null);
         ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutView.setId(VIEW_LIQUID);
         viewGroup.addView(layoutView, mParams);
@@ -144,7 +147,6 @@ public class Liquid {
         LiquidUtil.setGifInfo(layoutView, imageRes);
     }
 
-    //TODO 因为ID只有一个，所以只能是每次添加控件之间，进行移除前一项
     /**
      * 移除网络异常布布局——Actvitiy
      */

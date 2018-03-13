@@ -3,7 +3,6 @@ package com.ly.demo.application;
 import android.app.Application;
 
 import com.ly.demo.R;
-import com.ly.liquid.Liquid;
 import com.ly.liquid.LiquidStyle;
 
 /**
@@ -21,12 +20,15 @@ public class MyApplication extends Application {
     private void initTrans() {
        LiquidStyle.init()
                 .setErrorIamge(R.mipmap.trans_fail)
-                .setLoadImage(R.mipmap.loading)
+                .setLoadImage(R.mipmap.trans_load)
                 .setNoneImage(R.mipmap.trans_none)
                 .setErrorText("网络加载异常")
                 .setLoadText("加载中")
                 .setNoneText("没有找到内容")
                 .setTextColor(0xffdddddd)
-                .setTextSize(20);
+                .setTextSize(20)
+//                .setClickLayoutRes(R.layout.layout_error)
+//                .setGifLayoutRes(R.layout.layout_loading)
+       ;
     }
 }

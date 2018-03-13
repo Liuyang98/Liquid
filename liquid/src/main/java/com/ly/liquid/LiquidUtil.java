@@ -24,7 +24,7 @@ public class LiquidUtil {
      * @param imageRes
      */
     public static void setInfo(View layoutView, String str, int imageRes) {
-        ImageView image = layoutView.findViewById(R.id.iv_trans);
+        ImageView image = layoutView.findViewById(R.id.iv_tip);
         image.setImageResource(imageRes);
         setText(layoutView, str);
     }
@@ -60,7 +60,7 @@ public class LiquidUtil {
      */
     public static void setText(View layoutView, String str) {
         LiquidStyle style = LiquidStyle.getDefault();
-        TextView textView = layoutView.findViewById(R.id.tv_trans);
+        TextView textView = layoutView.findViewById(R.id.tv_tip);
         if (textView == null) {
             Log.e("LiquidUtil", "not found textView");
             return;

@@ -19,6 +19,8 @@ public class LiquidStyle {
     //模式，宽高
 
     private static LiquidStyle transResBean;
+    private int gifLayoutRes;
+    private int clickLayoutRes;
 
     public static LiquidStyle getDefault() {
         if (transResBean == null) {
@@ -75,6 +77,16 @@ public class LiquidStyle {
         return this;
     }
 
+    public LiquidStyle setGifLayoutRes(int gifLayoutRes) {
+        this.gifLayoutRes = gifLayoutRes;
+        return this;
+    }
+
+    public LiquidStyle setClickLayoutRes(int clickLayoutRes) {
+        this.clickLayoutRes = clickLayoutRes;
+        return this;
+    }
+
     public int getErrorIamge() {
         return errorIamge;
     }
@@ -105,5 +117,13 @@ public class LiquidStyle {
 
     public int getTextColor() {
         return textColor;
+    }
+
+    public int getGifLayoutRes() {
+        return gifLayoutRes;
+    }
+
+    public int getClickLayoutRes() {
+        return clickLayoutRes;
     }
 }

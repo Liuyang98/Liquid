@@ -6,10 +6,17 @@
     android:gravity="center"
     android:orientation="vertical">
 
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/iv_gif"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
     <TextView
+        android:id="@+id/tv_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginTop="30dp"
         android:textColor="#900"
         android:textSize="20dp" />
 
