@@ -12,6 +12,7 @@
 #Api
 
 初始化代码：
+```
        LiquidStyle.init()
                 .setErrorIamge(R.mipmap.trans_fail)
                 .setLoadImage(R.mipmap.trans_load)
@@ -23,3 +24,5 @@
                 .setTextSize(20)
                 .setClickLayoutRes(R.layout.layout_error)
                 .setGifLayoutRes(R.layout.layout_loading);
+                
+```
