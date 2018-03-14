@@ -17,4 +17,6 @@ public class LiquidParams {
     public int tipImageRes;
     //点击监听
     public View.OnClickListener listener;
+    //背景色
+    public int backgroundColor;
 }

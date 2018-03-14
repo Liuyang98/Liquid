@@ -15,6 +15,7 @@ public class LiquidStyle {
 
     private int textSize;
     private int textColor;
+    private int backgroundColor;
     //还需要无网络和网络异常的区分，背景色
     //模式，宽高
 
@@ -87,6 +88,11 @@ public class LiquidStyle {
         return this;
     }
 
+    public LiquidStyle setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
+
     public int getErrorIamge() {
         return errorIamge;
     }
@@ -125,5 +131,9 @@ public class LiquidStyle {
 
     public int getClickLayoutRes() {
         return clickLayoutRes;
+    }
+
+    public int getBackgroundColor() {
+        return backgroundColor;
     }
 }

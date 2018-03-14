@@ -1,6 +1,5 @@
 package com.ly.demo.fragment;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,12 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.ly.demo.R;
 import com.ly.demo.adapter.SimAdapter;
 import com.ly.liquid.Liquid;
-import com.ly.liquid.LiquidUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,17 +66,17 @@ public class LoadErrorFragment extends BaseFragment {
 
 
     private void showCustomView() {
-        View.OnClickListener listener=new View.OnClickListener() {
+        View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Liquid.clear((Activity) mContext);
                 loadData();
             }
         };
 
         new Liquid.Builder()
                 .setClickListener(listener)
-                .build((Activity) mContext)
+                .setBackgroundColor(0xffffffff)
+                .build(view)
                 .showErrorView();
     }
 

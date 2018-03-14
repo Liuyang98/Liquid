@@ -71,6 +71,22 @@ public class LiquidUtil {
     }
 
     /**
+     * 设置背景
+     * @param layoutView
+     * @param paramColor
+     */
+    public static void setBackgroundColor(View layoutView,int paramColor){
+        LiquidStyle liStyle = LiquidStyle.getDefault();
+        if (paramColor== 0) {
+            if (liStyle.getBackgroundColor() != 0) {
+                layoutView.setBackgroundColor(liStyle.getBackgroundColor());
+            }
+        } else {
+            layoutView.setBackgroundColor(paramColor);
+        }
+    }
+
+    /**
      * 获取 Content控件
      *
      * @param activity

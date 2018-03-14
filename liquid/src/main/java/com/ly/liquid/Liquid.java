@@ -52,7 +52,6 @@ public class Liquid {
         String errContent = params.tipText == null ? liStyle.getErrorText() : params.tipText;
         int errImageRes = params.tipImageRes == 0 ? liStyle.getErrorIamge() : params.tipImageRes;
         showClickLayout(params.parentLayout, errContent, errImageRes, params.listener);
-
         return this;
     }
 
@@ -92,15 +91,16 @@ public class Liquid {
             Log.e("Liquid", "not found viewGroup");
             return;
         }
+        int clickRid = liStyle.getClickLayoutRes() == 0 ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
         Liquid.clear(viewGroup);
-        int clickRid=liStyle.getClickLayoutRes()==0?R.layout.liquid_default_layout_error:liStyle.getClickLayoutRes();
         View layoutView = LayoutInflater.from(viewGroup.getContext()).inflate(clickRid, null);
         ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutView.setId(VIEW_LIQUID);
-
         viewGroup.addView(layoutView, mParams);
+
         layoutView.setOnClickListener(clickListener);
         LiquidUtil.setInfo(layoutView, tipContent, imageRes);
+        LiquidUtil.setBackgroundColor(layoutView, params.backgroundColor);
     }
 
     /**
@@ -122,7 +122,7 @@ public class Liquid {
      */
     public Liquid showLoadingView() {
         int customImageRes = params.tipImageRes == 0 ? liStyle.getLoadImage() : params.tipImageRes;
-        getDefault().showGifLayout(params.parentLayout, customImageRes);
+        showGifLayout(params.parentLayout, customImageRes);
         return this;
     }
 
@@ -137,14 +137,15 @@ public class Liquid {
             Log.e("Liquid", "not found viewGroup");
             return;
         }
+        int loadingRid = liStyle.getGifLayoutRes() == 0 ? R.layout.liquid_default_layout_loading : liStyle.getGifLayoutRes();
         Liquid.clear(viewGroup);
-        int loadingRid=liStyle.getGifLayoutRes()==0?R.layout.liquid_default_layout_loading:liStyle.getGifLayoutRes();
         View layoutView = LayoutInflater.from(viewGroup.getContext()).inflate(loadingRid, null);
         ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutView.setId(VIEW_LIQUID);
         viewGroup.addView(layoutView, mParams);
 
         LiquidUtil.setGifInfo(layoutView, imageRes);
+        LiquidUtil.setBackgroundColor(layoutView,params.backgroundColor);
     }
 
     /**
@@ -187,6 +188,11 @@ public class Liquid {
 
         public Builder setImageRes(int tipImageRes) {
             params.tipImageRes = tipImageRes;
+            return this;
+        }
+
+        public Builder setBackgroundColor(int backgroundColor) {
+            params.backgroundColor = backgroundColor;
             return this;
         }
 

@@ -19,6 +19,7 @@ public class MyApplication extends Application {
 
     private void initTrans() {
        LiquidStyle.init()
+//                .setBackgroundColor(0xffff0000)
                 .setErrorIamge(R.mipmap.trans_fail)
                 .setLoadImage(R.mipmap.trans_load)
                 .setNoneImage(R.mipmap.trans_none)
