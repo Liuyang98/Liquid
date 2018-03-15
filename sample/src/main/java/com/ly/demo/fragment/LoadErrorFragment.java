@@ -55,7 +55,7 @@ public class LoadErrorFragment extends BaseFragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         adapter = new SimAdapter(getContext(), mDatas);
         rv.setLayoutManager(layoutManager);
-        swipe.setColorSchemeColors(0xFF3F51B5);
+        swipe.setColorSchemeColors(0xff3f51b5);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

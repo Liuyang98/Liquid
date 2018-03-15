@@ -12,8 +12,8 @@ import android.view.ViewGroup;
  */
 public class Liquid {
     private static final int VIEW_LIQUID = R.id.liquid_view;
+    private volatile static Liquid defaultInstance;
     private static final LiquidStyle liStyle = LiquidStyle.getDefault();
-    private static Liquid defaultInstance;
     private LiquidParams params;
 
     private static Liquid getDefault() {

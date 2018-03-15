@@ -5,33 +5,29 @@ package com.ly.liquid;
  * 全局风格控制类
  */
 public class LiquidStyle {
-    private int errorIamge;
-    private int loadImage;
-    private int noneImage;
-
+    private volatile static LiquidStyle liquidStyle;
     private String errorText;
     private String loadText;
     private String noneText;
-
+    private int errorIamge;
+    private int loadImage;
+    private int noneImage;
     private int textSize;
     private int textColor;
     private int backgroundColor;
-    //还需要无网络和网络异常的区分，背景色
-    //模式，宽高
 
-    private static LiquidStyle transResBean;
     private int gifLayoutRes;
     private int clickLayoutRes;
 
     public static LiquidStyle getDefault() {
-        if (transResBean == null) {
+        if (liquidStyle == null) {
             synchronized (LiquidStyle.class) {
-                if (transResBean == null) {
-                    transResBean = new LiquidStyle();
+                if (liquidStyle == null) {
+                    liquidStyle = new LiquidStyle();
                 }
             }
         }
-        return transResBean;
+        return liquidStyle;
     }
 
     public static LiquidStyle init() {
