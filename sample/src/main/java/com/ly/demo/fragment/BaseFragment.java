@@ -19,7 +19,6 @@ public class BaseFragment extends Fragment {
         return (T) mView.findViewById(id);
     }
 
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
