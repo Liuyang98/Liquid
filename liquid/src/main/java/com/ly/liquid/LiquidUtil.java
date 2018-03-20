@@ -25,6 +25,10 @@ public class LiquidUtil {
      */
     public static void setInfo(View layoutView, String str, int imageRes) {
         ImageView image = layoutView.findViewById(R.id.iv_tip);
+        if (image == null) {
+            Log.e("LiquidUtil", "not found image");
+            return;
+        }
         image.setImageResource(imageRes);
         setText(layoutView, str);
     }
