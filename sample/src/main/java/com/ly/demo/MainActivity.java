@@ -18,7 +18,6 @@ import java.util.List;
 /**
  * Created by yangl.liu on 2018/3/7.
  */
-
 public class MainActivity extends AppCompatActivity {
     private ViewPager vp;
     private TabLayout tabLayout;
@@ -29,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        准备尝试注解
         init();
     }
 
