@@ -26,6 +26,7 @@ public class SimpleFragment extends BaselazyLoadFragment {
     private SimAdapter adapter;
     private List<String> mDatas;
     private SwipeRefreshLayout swipe;
+    private ViewGroup parentLayout;
 
     @Nullable
     @Override
@@ -40,6 +41,7 @@ public class SimpleFragment extends BaselazyLoadFragment {
     }
 
     private void init() {
+        parentLayout =view.findViewById(R.id.llayout);
         swipe = view.findViewById(R.id.swipe);
         rv = view.findViewById(R.id.rv);
         mDatas = new ArrayList<>();
@@ -72,13 +74,13 @@ public class SimpleFragment extends BaselazyLoadFragment {
     }
 
     private void loadData() {
-        Liquid.showLoadingView((ViewGroup) view);
+        Liquid.showLoadingView(parentLayout);
         swipe.postDelayed(new Runnable() {
             @Override
             public void run() {
                 rv.setAdapter(adapter);
                 swipe.setRefreshing(false);
-                Liquid.clear((ViewGroup) view);
+                Liquid.clear(parentLayout);
             }
         }, 1000);
     }

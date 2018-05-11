@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 /**
  * Created by yangl.liu on 2018/3/5.
@@ -32,75 +33,50 @@ public class Liquid {
     }
 
     /**
-     * 显示网络异常布局——默认
+     * 显示简单提示布局（无点击事件）——默认
      */
-    public static void showErrorView(Activity activity, View.OnClickListener clickListener) {
-        showErrorView(LiquidUtil.getContentView(activity), clickListener);
+    public static void showTipView(Activity activity) {
+        showTipView(LiquidUtil.getContentView(activity));
     }
 
     /**
-     * 显示网络异常布局——默认
+     * 显示简单提示布局（无点击事件）——默认
      */
-    public static void showErrorView(ViewGroup viewGroup, View.OnClickListener clickListener) {
+    public static void showTipView(ViewGroup viewGroup) {
+        getDefault().showClickLayout(viewGroup, liStyle.getNoneText(), liStyle.getNoneImage(), getDefault().params.interceptListener);
+    }
+
+    /**
+     * 显示简单提示布局（无点击事件）——param
+     */
+    public void showTipView() {
+        String customTip = params.tipText == null ? liStyle.getNoneText() : params.tipText;
+        int customImageRes = params.tipImageRes == 0 ? liStyle.getNoneImage() : params.tipImageRes;
+        showClickLayout(params.parentLayout, customTip, customImageRes, params.interceptListener);
+    }
+
+    /**
+     * 显示点击事件布局——默认
+     */
+    public static void showClickView(Activity activity, View.OnClickListener clickListener) {
+        showClickView(LiquidUtil.getContentView(activity), clickListener);
+    }
+
+    /**
+     * 显示点击事件布局——默认
+     */
+    public static void showClickView(ViewGroup viewGroup, View.OnClickListener clickListener) {
         getDefault().showClickLayout(viewGroup, liStyle.getNoneText(), liStyle.getNoneImage(), clickListener);
     }
 
     /**
-     * 显示网络异常布局——param
+     * 显示点击事件布局——param
      */
-    public Liquid showErrorView() {
+    public Liquid showClickView() {
         String errContent = params.tipText == null ? liStyle.getErrorText() : params.tipText;
         int errImageRes = params.tipImageRes == 0 ? liStyle.getErrorIamge() : params.tipImageRes;
-        showClickLayout(params.parentLayout, errContent, errImageRes, params.listener);
+        showClickLayout(params.parentLayout, errContent, errImageRes, params.clickListener);
         return this;
-    }
-
-    /**
-     * 显示事务布局——默认
-     */
-    public static void showCustomView(Activity activity) {
-        showCustomView(LiquidUtil.getContentView(activity));
-    }
-
-    /**
-     * 显示事务布局——默认
-     */
-    public static void showCustomView(ViewGroup viewGroup) {
-        getDefault().showClickLayout(viewGroup, liStyle.getNoneText(), liStyle.getNoneImage(), defaultListener);
-    }
-
-    /**
-     * 显示事务布局——param
-     */
-    public void showCustomView() {
-        String customTip = params.tipText == null ? liStyle.getNoneText() : params.tipText;
-        int customImageRes = params.tipImageRes == 0 ? liStyle.getNoneImage() : params.tipImageRes;
-        showClickLayout(params.parentLayout, customTip, customImageRes, params.listener);
-    }
-
-    /**
-     * 显示点击事件布局（非GIF）
-     *
-     * @param viewGroup     父容器
-     * @param tipContent    提示文案
-     * @param imageRes      提示图片
-     * @param clickListener 点击监听
-     */
-    private void showClickLayout(ViewGroup viewGroup, String tipContent, int imageRes, View.OnClickListener clickListener) {
-        if (viewGroup == null) {
-            Log.e("Liquid", "not found viewGroup");
-            return;
-        }
-        int clickRid = liStyle.getClickLayoutRes() == 0 ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
-        Liquid.clear(viewGroup);
-        View layoutView = LayoutInflater.from(viewGroup.getContext()).inflate(clickRid, null);
-        ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        layoutView.setId(VIEW_LIQUID);
-        viewGroup.addView(layoutView, mParams);
-
-        layoutView.setOnClickListener(clickListener);
-        LiquidUtil.setInfo(layoutView, tipContent, imageRes);
-        LiquidUtil.setBackgroundColor(layoutView, params.backgroundColor);
     }
 
     /**
@@ -126,6 +102,7 @@ public class Liquid {
         return this;
     }
 
+    //TODO 是否要把3个showLayout抽离
     /**
      * 显示网络加载布局
      *
@@ -133,19 +110,46 @@ public class Liquid {
      * @param imageRes  GIF资源
      */
     private void showGifLayout(ViewGroup viewGroup, int imageRes) {
+        int loadingRid = liStyle.getGifLayoutRes() == 0 ? R.layout.liquid_default_layout_loading : liStyle.getGifLayoutRes();
+        showLayout(viewGroup, "", imageRes, loadingRid, getDefault().params.interceptListener);
+    }
+
+    /**
+     * 显示点击事件布局（非GIF）
+     *
+     * @param viewGroup     父容器
+     * @param tipContent    提示文案
+     * @param imageRes      提示图片
+     * @param clickListener 点击监听
+     */
+    private void showClickLayout(ViewGroup viewGroup, String tipContent, int imageRes, View.OnClickListener clickListener) {
+        int clickRid = liStyle.getClickLayoutRes() == 0 ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
+        showLayout(viewGroup, tipContent, imageRes, clickRid, clickListener);
+    }
+
+    /**
+     * 添加布局
+     *
+     * @param viewGroup     父容器
+     * @param tipContent    提示文案
+     * @param imageRes      提示图片
+     * @param LayoutRes     父布局资源
+     * @param clickListener 点击监听
+     */
+    private void showLayout(ViewGroup viewGroup, String tipContent, int imageRes, int LayoutRes, View.OnClickListener clickListener) {
         if (viewGroup == null) {
             Log.e("Liquid", "not found viewGroup");
             return;
         }
-        int loadingRid = liStyle.getGifLayoutRes() == 0 ? R.layout.liquid_default_layout_loading : liStyle.getGifLayoutRes();
         Liquid.clear(viewGroup);
-        View layoutView = LayoutInflater.from(viewGroup.getContext()).inflate(loadingRid, null);
+        View layoutView = LayoutInflater.from(viewGroup.getContext()).inflate(LayoutRes, null);
         ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         layoutView.setId(VIEW_LIQUID);
-        viewGroup.addView(layoutView, mParams);
 
-        LiquidUtil.setGifInfo(layoutView, imageRes);
-        LiquidUtil.setBackgroundColor(layoutView,params.backgroundColor);
+        viewGroup.addView(layoutView, layoutView instanceof LinearLayout ? 0 : -1, mParams);
+
+        LiquidUtil.setInfo(layoutView, tipContent, imageRes, params.backgroundColor);
+        layoutView.setOnClickListener(clickListener);
     }
 
     /**
@@ -161,15 +165,6 @@ public class Liquid {
     public static void clear(ViewGroup viewGroup) {
         viewGroup.removeView(viewGroup.findViewById(VIEW_LIQUID));
     }
-
-    /**
-     * 默认的监听，用来消化点击事件
-     */
-    private static View.OnClickListener defaultListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-        }
-    };
 
     /**
      * 建造者类
@@ -197,7 +192,7 @@ public class Liquid {
         }
 
         public Builder setClickListener(View.OnClickListener listener) {
-            params.listener = listener;
+            params.clickListener = listener;
             return this;
         }
 

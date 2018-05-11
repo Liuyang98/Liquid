@@ -15,7 +15,6 @@ public class LiquidStyle {
     private int textSize;
     private int textColor;
     private int backgroundColor;
-
     private int gifLayoutRes;
     private int clickLayoutRes;
 

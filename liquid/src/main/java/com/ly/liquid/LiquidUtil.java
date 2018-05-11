@@ -14,16 +14,22 @@ import pl.droidsonroids.gif.GifImageView;
  * Created by yangl.liu on 2018/3/8.
  * 工具类，用于填充信息和提供静态方法
  */
-
 public class LiquidUtil {
     /**
      * 填充事务面板
      *
-     * @param layoutView
-     * @param str
-     * @param imageRes
+     * @param layoutView 父容器
+     * @param str 提示文字
+     * @param imageRes 提示图片
      */
-    public static void setInfo(View layoutView, String str, int imageRes) {
+    public static void setInfo(View layoutView, String str, int imageRes, int paramColor) {
+        setBackgroundColor(layoutView, paramColor);
+        //判断类型
+        if (isGifLayout(layoutView)) {
+            LiquidUtil.setGifInfo(layoutView, imageRes);
+            return;
+        }
+
         ImageView image = layoutView.findViewById(R.id.iv_tip);
         if (image == null) {
             Log.e("LiquidUtil", "not found image");
@@ -76,12 +82,13 @@ public class LiquidUtil {
 
     /**
      * 设置背景
+     *
      * @param layoutView
      * @param paramColor
      */
-    public static void setBackgroundColor(View layoutView,int paramColor){
+    public static void setBackgroundColor(View layoutView, int paramColor) {
         LiquidStyle liStyle = LiquidStyle.getDefault();
-        if (paramColor== 0) {
+        if (paramColor == 0) {
             if (liStyle.getBackgroundColor() != 0) {
                 layoutView.setBackgroundColor(liStyle.getBackgroundColor());
             }
@@ -99,4 +106,12 @@ public class LiquidUtil {
     public static ViewGroup getContentView(Activity activity) {
         return activity.findViewById(android.R.id.content);
     }
+
+    /**
+     * 判断是否Gif布局
+     */
+    private static boolean isGifLayout(View viewGroup) {
+        return viewGroup.findViewById(R.id.iv_gif) != null;
+    }
+
 }

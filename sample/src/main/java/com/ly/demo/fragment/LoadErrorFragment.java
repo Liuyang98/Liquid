@@ -21,13 +21,13 @@ import java.util.List;
  */
 
 public class LoadErrorFragment extends BaseFragment {
-    private ViewGroup view;
     private View mView;
     private RecyclerView rv;
     private SimAdapter adapter;
     private List<String> mDatas;
     private SwipeRefreshLayout swipe;
     private boolean flag;
+    private ViewGroup paretLayout;
 
     @Nullable
     @Override
@@ -36,15 +36,15 @@ public class LoadErrorFragment extends BaseFragment {
             mView = inflater.inflate(R.layout.fragment_simaple, container, false);
             init();
             initRecy();
-            showCustomView();
+            showErrorView();
         }
         return mView;
     }
 
     private void init() {
-        view = (ViewGroup) mView;
-        swipe = view.findViewById(R.id.swipe);
-        rv = view.findViewById(R.id.rv);
+                paretLayout = mView.findViewById(R.id.llayout);
+        swipe = mView.findViewById(R.id.swipe);
+        rv = mView.findViewById(R.id.rv);
         mDatas = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             mDatas.add("测试：：" + i);
@@ -65,7 +65,7 @@ public class LoadErrorFragment extends BaseFragment {
     }
 
 
-    private void showCustomView() {
+    private void showErrorView() {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,17 +76,17 @@ public class LoadErrorFragment extends BaseFragment {
         new Liquid.Builder()
                 .setClickListener(listener)
                 .setBackgroundColor(0xffffffff)
-                .build(view)
-                .showErrorView();
+                .build(paretLayout)
+                .showClickView();
     }
 
     private void loadData() {
-        Liquid.showLoadingView(view);
+        Liquid.showLoadingView(paretLayout);
         swipe.postDelayed(new Runnable() {
             @Override
             public void run() {
                 if (flag) {
-                    Liquid.clear(view);
+                    Liquid.clear(paretLayout);
                     rv.setAdapter(adapter);
                     swipe.setRefreshing(false);
                 } else {
@@ -98,7 +98,7 @@ public class LoadErrorFragment extends BaseFragment {
     }
 
     private void showError() {
-        Liquid.showErrorView(view, new View.OnClickListener() {
+        Liquid.showClickView(paretLayout, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadData();
