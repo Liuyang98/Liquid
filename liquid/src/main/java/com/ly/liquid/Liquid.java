@@ -102,7 +102,6 @@ public class Liquid {
         return this;
     }
 
-    //TODO 是否要把3个showLayout抽离
     /**
      * 显示网络加载布局
      *

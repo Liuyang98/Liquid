@@ -19,15 +19,13 @@ import java.util.List;
 /**
  * Created by yangl.liu on 2018/3/7.
  */
-
 public class LoadErrorFragment extends BaseFragment {
-    private View mView;
     private RecyclerView rv;
     private SimAdapter adapter;
-    private List<String> mDatas;
     private SwipeRefreshLayout swipe;
-    private boolean flag;
     private ViewGroup paretLayout;
+    private boolean flag;
+    private List<String> mDatas;
 
     @Nullable
     @Override
@@ -42,9 +40,9 @@ public class LoadErrorFragment extends BaseFragment {
     }
 
     private void init() {
-                paretLayout = mView.findViewById(R.id.llayout);
-        swipe = mView.findViewById(R.id.swipe);
-        rv = mView.findViewById(R.id.rv);
+        paretLayout = findView(R.id.llayout);
+        swipe = findView(R.id.swipe);
+        rv = findView(R.id.rv);
         mDatas = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             mDatas.add("测试：：" + i);
