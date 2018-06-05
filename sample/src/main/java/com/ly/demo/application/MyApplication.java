@@ -28,8 +28,8 @@ public class MyApplication extends Application {
                 .setNoneText("没有找到内容")
                 .setTextColor(0xffdddddd)
                 .setTextSize(20)
-//                .setClickLayoutRes(R.layout.layout_error)
-//                .setGifLayoutRes(R.layout.layout_loading)
+                .setClickLayoutRes(R.layout.layout_error)
+                .setGifLayoutRes(R.layout.layout_loading)
        ;
     }
 }
