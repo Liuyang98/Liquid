@@ -16,14 +16,11 @@ public abstract class BaselazyLoadFragment extends BaseFragment {
     protected abstract void lazyLoad();
 
     /**
-     * 是否需要进行懒加载
-     * bool=false则进行
-     *
-     * @return
+     * 是否跳过懒加载
+     * false则进行
      */
     protected boolean checkLazy() {
-        boolean bool = !isPrepared || !isVisible || isInited;
-        return bool;
+        return !isPrepared || !isVisible || isInited;
     }
 
     /**

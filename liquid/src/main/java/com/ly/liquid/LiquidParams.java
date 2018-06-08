@@ -21,7 +21,7 @@ public class LiquidParams {
     //背景色
     public int backgroundColor;
 
-    public LiquidParams() {
+    LiquidParams() {
         interceptListener=InterceptListener.getInstance();
     }
 }

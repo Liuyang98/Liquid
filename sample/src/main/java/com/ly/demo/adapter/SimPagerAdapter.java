@@ -32,7 +32,6 @@ public class SimPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        CharSequence quence = titles == null ? " " : titles.get(position);
-        return quence;
+        return titles == null ? " " : titles.get(position);
     }
 }
