@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -15,16 +14,6 @@
         android:id="@+id/tv_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textColor="#900"
-        android:textSize="20dp" />
-
-    <TextView
-        android:text="自定义布局"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:textColor="#aaa"
-        android:textSize="15dp" />
+        android:layout_marginTop="30dp"/>
 
 </LinearLayout>

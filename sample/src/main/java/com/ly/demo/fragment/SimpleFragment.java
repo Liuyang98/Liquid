@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ly.demo.R;
-import com.ly.demo.adapter.SimAdapter;
+import com.ly.demo.adapter.SampleRecyclerAdapter;
 import com.ly.liquid.Liquid;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import java.util.List;
 public class SimpleFragment extends BaselazyLoadFragment {
     private View view;
     private RecyclerView rv;
-    private SimAdapter adapter;
+    private SampleRecyclerAdapter adapter;
     private List<String> mDatas;
     private SwipeRefreshLayout swipe;
     private ViewGroup parentLayout;
@@ -52,7 +52,7 @@ public class SimpleFragment extends BaselazyLoadFragment {
 
     private void initRecy() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        adapter = new SimAdapter(mContext, mDatas);
+        adapter = new SampleRecyclerAdapter(mContext, mDatas);
         rv.setLayoutManager(layoutManager);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

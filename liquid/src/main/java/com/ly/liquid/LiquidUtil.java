@@ -15,6 +15,7 @@ import pl.droidsonroids.gif.GifImageView;
  * 工具类，用于填充信息和提供静态方法
  */
 public class LiquidUtil {
+    private static final String TAG = "LiquidUtil";
     /**
      * 填充事务面板
      *
@@ -32,7 +33,7 @@ public class LiquidUtil {
 
         ImageView image = layoutView.findViewById(R.id.iv_tip);
         if (image == null) {
-            Log.e("LiquidUtil", "not found image");
+            Log.e(TAG, "not found ImageView R.iv.tip" );
             return;
         }
         image.setImageResource(imageRes);
@@ -49,13 +50,13 @@ public class LiquidUtil {
         //播放gif动画
         GifImageView gifImageView = layoutView.findViewById(R.id.iv_gif);
         if (gifImageView == null) {
-            Log.e("LiquidUtil", "not found gifView");
+            Log.e(TAG, "not found GifImageView R.id.iv_gif" );
             return;
         }
         gifImageView.setImageResource(rid);
         GifDrawable gifDrawable = (GifDrawable) gifImageView.getDrawable();
         if (gifDrawable == null) {
-            Log.e("LiquidUtil", "not found gifDrawable");
+            Log.e(TAG, "gifDrawable == null" );
             return;
         }
         gifDrawable.start();
@@ -72,7 +73,7 @@ public class LiquidUtil {
         LiquidStyle style = LiquidStyle.getDefault();
         TextView textView = layoutView.findViewById(R.id.tv_tip);
         if (textView == null) {
-            Log.e("LiquidUtil", "not found textView");
+            Log.e(TAG, "not found TextView R.id.tv_tip" );
             return;
         }
         textView.setText(str);

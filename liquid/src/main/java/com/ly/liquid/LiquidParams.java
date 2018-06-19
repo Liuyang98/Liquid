@@ -16,7 +16,7 @@ public class LiquidParams {
     public int tipImageRes;
     //拦截点击监听
     public InterceptListener interceptListener;
-
+    //点击事件监听
     public View.OnClickListener clickListener;
     //背景色
     public int backgroundColor;

@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ly.demo.R;
-import com.ly.demo.adapter.SimAdapter;
+import com.ly.demo.adapter.SampleRecyclerAdapter;
 import com.ly.liquid.Liquid;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class LoadErrorFragment extends BaseFragment {
     private RecyclerView rv;
-    private SimAdapter adapter;
+    private SampleRecyclerAdapter adapter;
     private SwipeRefreshLayout swipe;
     private ViewGroup paretLayout;
     private boolean flag;
@@ -51,7 +51,7 @@ public class LoadErrorFragment extends BaseFragment {
 
     private void initRecy() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        adapter = new SimAdapter(getContext(), mDatas);
+        adapter = new SampleRecyclerAdapter(getContext(), mDatas);
         rv.setLayoutManager(layoutManager);
         swipe.setColorSchemeColors(0xff3f51b5);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

@@ -14,10 +14,10 @@ import java.util.List;
  * Created by yangl.liu on 2017/5/8.
  * 主播列表适配器
  */
-public class SimAdapter extends BaseRecyclerAdapter<SimAdapter.SimHolder> {
+public class SampleRecyclerAdapter extends BaseRecyclerAdapter<SampleRecyclerAdapter.SimHolder> {
     private List<String> mDatas;
 
-    public SimAdapter(Context mContext, List mDatas) {
+    public SampleRecyclerAdapter(Context mContext, List mDatas) {
         super(mContext, mDatas);
         this.mDatas = mDatas;
     }

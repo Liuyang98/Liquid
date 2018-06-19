@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.ly.demo.adapter.SimPagerAdapter;
+import com.ly.demo.adapter.SamplePagerAdapter;
 import com.ly.demo.fragment.LoadErrorFragment;
 import com.ly.demo.fragment.SimpleFragment;
 
@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private List<Fragment> fragmentList;
     private List<String> titleList;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             fragmentList.add(new SimpleFragment().setType(i));
             titleList.add("页面:" + i);
         }
-        vp.setAdapter(new SimPagerAdapter(getSupportFragmentManager(), fragmentList, titleList));
+        vp.setAdapter(new SamplePagerAdapter(getSupportFragmentManager(), fragmentList, titleList));
         tabLayout.setupWithViewPager(vp);
         vp.setVisibility(View.VISIBLE);
 
