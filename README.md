@@ -1,5 +1,5 @@
 # Liquid
-一个处理网络状态反馈的框架，非侵入式，不必修改XML文件。用于显示“网络加载中”，“加载异常”，“无内容”等事务显示。提供全局和自定义两种风格选择。采用链式编程，建造者模式的风格。支持自定义事务界面
+一个处理网络状态反馈的框架，非侵入式，不必修改XML文件。用于显示“网络加载中”，“加载异常”，“无内容”等事务显示。提供全局和自定义两种风格选择。采用链式编程，建造者模式的风格。支持自定义事务界面。
 
 # 截图
 
@@ -62,5 +62,4 @@
 
 ```
 当传入对象是Activity类型时，会将视图添加到 android.R.id.content ，也就是通常setContent的控件下。
-当传入对象是ViewGroup类型时，则会作为子View添加在ViewGroup控件中。推荐ViewGroup的具体类型为FrameLayout或者RelativeLayout，使用LinearLayout可能会造成框架无法显示事务布局
-
+当传入对象是ViewGroup类型时，则会作为子View添加在ViewGroup控件中。支持父容器：FrameLayout，RelativeLayout，LinearLayout
