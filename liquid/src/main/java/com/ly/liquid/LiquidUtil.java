@@ -50,7 +50,7 @@ public class LiquidUtil {
         //播放gif动画
         GifImageView gifImageView = layoutView.findViewById(R.id.iv_gif);
         if (gifImageView == null) {
-            Log.e(TAG, "not found GifImageView R.id.iv_gif" );
+            Log.e(TAG, "not found GifImageView R.id.iv_gif");
             return;
         }
         gifImageView.setImageResource(rid);
