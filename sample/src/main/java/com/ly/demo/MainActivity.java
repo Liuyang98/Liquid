@@ -45,6 +45,5 @@ public class MainActivity extends AppCompatActivity {
         vp.setAdapter(new SamplePagerAdapter(getSupportFragmentManager(), fragmentList, titleList));
         tabLayout.setupWithViewPager(vp);
         vp.setVisibility(View.VISIBLE);
-
     }
 }
