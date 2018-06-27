@@ -25,3 +25,20 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+ext {
+    //Android
+    compileSdkVersion = 27
+    minSdkVersion = 16
+    targetSdkVersion = 27
+
+    supportLibrary = "27.1.1"
+
+    //supportLibraries dependencies
+    supportDependencies = [
+            supportAppcompat: "com.android.support:appcompat-v7:${supportLibrary}",
+            junit:"junit:junit:4.12"
+            ,
+    ]
+}
