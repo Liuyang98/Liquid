@@ -11,13 +11,20 @@
         android:name=".application.MyApplication"
         android:theme="@style/AppTheme" >
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".IndexActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.FragmentMuleipleActivity"/>
+        <activity android:name=".activity.FragmentSingleActivity"/>
+        <activity android:name=".activity.FragmentViewPagerActiviy"/>
+        <activity android:name=".activity.NormalActivity"/>
+        <activity android:name=".activity.ViewGroupActivity"/>
+
     </application>
 
 </manifest>

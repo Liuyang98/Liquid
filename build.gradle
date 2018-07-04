@@ -38,7 +38,6 @@ ext {
     //supportLibraries dependencies
     supportDependencies = [
             supportAppcompat: "com.android.support:appcompat-v7:${supportLibrary}",
-            junit:"junit:junit:4.12"
-            ,
+            junit:"junit:junit:4.12",
     ]
 }
