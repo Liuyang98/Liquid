@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/baseTextView"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:background="#dfdfdf"
+        android:gravity="center"
+        android:text="标题区域" />
+
+    <LinearLayout
+        android:id="@+id/llayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            style="@style/baseTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="内容区域" />
+    </LinearLayout>
+
+</LinearLayout>

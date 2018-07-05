@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="12dp">
 
 
     <Button
+        style="@style/baseTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inActivity"
-        android:text="In Activity"
-        android:textAllCaps="false"/>
+        android:text="In Activity" />
 
     <Button
+        style="@style/baseTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inViewGroup"
-        android:text="In ViewGroup"
-        android:textAllCaps="false"/>
+        android:text="In ViewGroup" />
 
 
     <Button
+        style="@style/baseTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inFragmentSingle"
-        android:text="Fragment Single"
-        android:textAllCaps="false"/>
+        android:text="Fragment Single" />
 
     <Button
+        style="@style/baseTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inFragmentMuleiple"
-        android:text="Fragment Muleiple"
-        android:textAllCaps="false"/>
+        android:text="Fragment Muleiple" />
 
     <Button
+        style="@style/baseTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="inFragmentViewPager"
-        android:text="Fragment ViewPager"
-        android:textAllCaps="false"/>
-
+        android:text="Fragment ViewPager" />
 
 
 </LinearLayout>

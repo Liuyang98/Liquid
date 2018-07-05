@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/frame_muleiple"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <View style="@style/line_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#f9f9f9"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_bottom1"
+            style="@style/txt_bottom"
+            android:text="页面1" />
+
+        <View style="@style/line_vertical" />
+
+        <TextView
+            android:id="@+id/tv_bottom2"
+            style="@style/txt_bottom"
+            android:text="页面2" />
+
+        <View style="@style/line_vertical" />
+
+
+        <TextView
+            android:id="@+id/tv_bottom3"
+            style="@style/txt_bottom"
+            android:text="页面3" />
+
+        <View style="@style/line_vertical" />
+
+        <TextView
+            android:id="@+id/tv_bottom4"
+            style="@style/txt_bottom"
+            android:text="页面4" />
+
+    </LinearLayout>
+
+</LinearLayout>

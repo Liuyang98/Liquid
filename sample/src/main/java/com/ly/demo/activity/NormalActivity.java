@@ -31,12 +31,9 @@ public class NormalActivity extends AppCompatActivity {
                 showLoading();
             }
         });
-
-
     }
 
     private void showLoading() {
-        Liquid.showLoadingView(this);
         //TODO 是否能把buid和show合并，内部仍为建造者模式，但外部不体现
         new Liquid.Builder().setText("加载中……").build(this).showLoadingView();
 

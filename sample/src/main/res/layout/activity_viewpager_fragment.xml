@@ -11,10 +11,7 @@
         android:layout_height="40dp"
         app:tabMode="scrollable" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="#CCC" />
+    <View style="@style/line_horizontal" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp"
