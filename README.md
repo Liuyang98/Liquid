@@ -54,7 +54,6 @@
                 .build(ViewGroup viewGroup) 
                 .showErrorView();
         
-        
         //清除Liquid框架所添加的布局
         Liquid.clear(Activity activity);
         
