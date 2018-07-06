@@ -14,50 +14,50 @@
 
 初始化代码：
 ```
-       //设置全局默认风格
-      LiquidStyle.init()
-                .setErrorIamge(R.mipmap.trans_fail)
-                .setLoadImage(R.mipmap.trans_load)
-                .setNoneImage(R.mipmap.trans_none)
-                .setErrorText("网络加载异常")
-                .setLoadText("加载中")
-                .setNoneText("没有找到内容")
-                .setTextColor(0xffdddddd)
-                .setTextSize(20)
-                .setClickLayoutRes(R.layout.layout_error)
-                .setGifLayoutRes(R.layout.layout_loading);
+       //设置全局默认风格
+       LiquidStyle.init()
+                  .setErrorIamge(R.mipmap.trans_fail)
+                  .setLoadImage(R.mipmap.trans_load)
+                  .setNoneImage(R.mipmap.trans_none)
+                  .setErrorText("网络加载异常")
+                  .setLoadText("加载中")
+                  .setNoneText("没有找到内容")
+                  .setTextColor(0xffdddddd)
+                  .setTextSize(20)
+                  .setClickLayoutRes(R.layout.layout_error)
+                  .setGifLayoutRes(R.layout.layout_loading);
                 
 ```
 
 具体用法：
 ```
-       //显示默认风格的加载布局
-        Liquid.showLoadingView(Activity activity);
-        
-        Liquid.showLoadingView(ViewGroup viewGrouop);
-        
-       //显示默认风格的异常布局
-        Liquid.showErrorView(Activity activity);
-        
-        Liquid.showErrorView(ViewGroup viewGrouop);
-        
-       //显示默认风格的自定义事务布局
-        Liquid.showCustomView(Activity activity);
-        
-        Liquid.showCustomView(ViewGroup viewGrouop);
+       //显示默认风格的加载布局
+       Liquid.showLoadingView(Activity activity);
+       
+       Liquid.showLoadingView(ViewGroup viewGrouop);
+       
+       //显示默认风格的异常布局
+       Liquid.showErrorView(Activity activity);
+       
+       Liquid.showErrorView(ViewGroup viewGrouop);
+       
+       //显示默认风格的自定义事务布局
+       Liquid.showCustomView(Activity activity);
+       
+       Liquid.showCustomView(ViewGroup viewGrouop);
 
-        //创建独立风格的布局
-        new Liquid.Builder()
-                .setText(String text)
-                .setImageRes(int imageRes)
-                .setClickListener(View.OnClicklistener clickListener)
-                .build(ViewGroup viewGroup) 
-                .showErrorView();
-        
-        //清除Liquid框架所添加的布局
-        Liquid.clear(Activity activity);
-        
-        Liquid.clear(ViewGroup viewGroup);
+       //创建独立风格的布局
+       new Liquid.Builder()
+                 .setText(String text)
+                 .setImageRes(int imageRes)
+                 .setClickListener(View.OnClicklistener clickListener)
+                 .build(ViewGroup viewGroup) 
+                 .showErrorView();
+       
+       //清除Liquid框架所添加的布局
+       Liquid.clear(Activity activity);
+       
+       Liquid.clear(ViewGroup viewGroup);
 
 ```
 当传入对象是Activity类型时，会将视图添加到 android.R.id.content ，也就是通常setContent的控件下。
