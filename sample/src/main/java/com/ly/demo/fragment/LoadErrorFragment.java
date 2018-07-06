@@ -40,9 +40,9 @@ public class LoadErrorFragment extends BaseFragment {
     }
 
     private void init() {
-        paretLayout = findView(R.id.llayout);
-        swipe = findView(R.id.swipe);
         rv = findView(R.id.rv);
+        swipe = findView(R.id.swipe);
+        paretLayout = findView(R.id.llayout);
         mDatas = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             mDatas.add("测试：：" + i);
@@ -50,9 +50,8 @@ public class LoadErrorFragment extends BaseFragment {
     }
 
     private void initRecy() {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         adapter = new SampleRecyclerAdapter(getContext(), mDatas);
-        rv.setLayoutManager(layoutManager);
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
         swipe.setColorSchemeColors(0xff3f51b5);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -104,21 +103,3 @@ public class LoadErrorFragment extends BaseFragment {
         });
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

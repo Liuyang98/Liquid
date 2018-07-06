@@ -17,7 +17,7 @@ public class SingleFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if(mView==null) {
+        if (mView == null) {
             mView = inflater.inflate(R.layout.fragment_single, container, false);
             init();
         }
@@ -31,8 +31,6 @@ public class SingleFragment extends Fragment {
                 showLoading();
             }
         });
-
-
     }
 
     private void showLoading() {

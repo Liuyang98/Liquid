@@ -20,8 +20,8 @@ import java.util.List;
  */
 public class FragmentMuleipleActivity extends AppCompatActivity implements View.OnClickListener {
     private int lastPosition;
-    private List<TextView>  textViews;
-    private List<Fragment>  fragments;
+    private List<TextView> textViews;
+    private List<Fragment> fragments;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,14 +32,14 @@ public class FragmentMuleipleActivity extends AppCompatActivity implements View.
     }
 
     private void init() {
-        lastPosition=0;
-        textViews=new ArrayList<>();
-        fragments=new ArrayList<>();
-        int[] ids=new int []{R.id.tv_bottom1,R.id.tv_bottom2,R.id.tv_bottom3,R.id.tv_bottom4};
-        for(int i=0;i<ids.length;i++){
+        lastPosition = 0;
+        textViews = new ArrayList<>();
+        fragments = new ArrayList<>();
+        int[] ids = new int[]{R.id.tv_bottom1, R.id.tv_bottom2, R.id.tv_bottom3, R.id.tv_bottom4};
+        for (int i = 0; i < ids.length; i++) {
             textViews.add((TextView) findViewById(ids[i]));
             textViews.get(i).setOnClickListener(this);
-            fragments.add(new MuleipleFragment().setType(i+1));
+            fragments.add(new MuleipleFragment().setType(i + 1));
         }
         textViews.get(lastPosition).setTextColor(0xffff0000);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_muleiple, fragments.get(lastPosition)).commit();
@@ -48,7 +48,7 @@ public class FragmentMuleipleActivity extends AppCompatActivity implements View.
     /**
      * 切换Fragment
      *
-     * @param p
+     * @param p fragment坐标
      */
     public void insertFragment(int p) {
         if (p != lastPosition) {
@@ -66,7 +66,7 @@ public class FragmentMuleipleActivity extends AppCompatActivity implements View.
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_bottom1:
                 insertFragment(0);
                 break;

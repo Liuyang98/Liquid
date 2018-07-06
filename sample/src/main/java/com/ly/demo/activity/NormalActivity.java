@@ -13,7 +13,6 @@ import com.ly.liquid.Liquid;
  * 普通Activity中使用
  */
 public class NormalActivity extends AppCompatActivity {
-    private TextView textView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,7 +23,6 @@ public class NormalActivity extends AppCompatActivity {
     }
 
     private void init() {
-        textView = findViewById(R.id.tv);
         Liquid.showClickView(this, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,14 +32,17 @@ public class NormalActivity extends AppCompatActivity {
     }
 
     private void showLoading() {
-        //TODO 是否能把buid和show合并，内部仍为建造者模式，但外部不体现
-        new Liquid.Builder().setText("加载中……").build(this).showLoadingView();
+        new Liquid.Builder()
+                .setText("加载中……")
+                .build(this)
+                .showLoadingView();
 
-        textView.postDelayed(new Runnable() {
+        getWindow().getDecorView().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Liquid.clear(NormalActivity.this);
             }
         }, 1500);
+
     }
 }

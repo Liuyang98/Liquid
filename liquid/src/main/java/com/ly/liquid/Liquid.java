@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 /**
  * Created by yangl.liu on 2018/3/5.
@@ -120,25 +119,25 @@ public class Liquid {
      * 显示点击事件布局（非GIF）
      *
      * @param viewGroup     父容器
-     * @param tipContent    提示文案
+     * @param tipText       提示文案
      * @param imageRes      提示图片
      * @param clickListener 点击监听
      */
-    private void doClickLayout(ViewGroup viewGroup, String tipContent, int imageRes, View.OnClickListener clickListener) {
+    private void doClickLayout(ViewGroup viewGroup, String tipText, int imageRes, View.OnClickListener clickListener) {
         int clickRid = liStyle.getClickLayoutRes() == 0 ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
-        beginShowLayout(viewGroup, tipContent, imageRes, clickRid, clickListener);
+        beginShowLayout(viewGroup, tipText, imageRes, clickRid, clickListener);
     }
 
     /**
      * 添加布局
      *
      * @param viewGroup     父容器
-     * @param tipContent    提示文案
+     * @param tipText       提示文案
      * @param imageRes      提示图片
      * @param LayoutRes     父布局资源
      * @param clickListener 点击监听
      */
-    private void beginShowLayout(ViewGroup viewGroup, String tipContent, int imageRes, int LayoutRes, View.OnClickListener clickListener) {
+    private void beginShowLayout(ViewGroup viewGroup, String tipText, int imageRes, int LayoutRes, View.OnClickListener clickListener) {
         if (viewGroup == null) {
             Log.e("Liquid", "not found viewGroup");
             return;
@@ -149,7 +148,7 @@ public class Liquid {
         childView.setId(VIEW_LIQUID);
         int vIndex = viewGroup instanceof LinearLayout ? 0 : -1;
         viewGroup.addView(childView, vIndex, mParams);
-        ViewUtil.setInfo(childView, tipContent, imageRes, params.backgroundColor, clickListener);
+        ViewUtil.setInfo(childView, tipText, imageRes, params.backgroundColor, clickListener);
     }
 
     /**

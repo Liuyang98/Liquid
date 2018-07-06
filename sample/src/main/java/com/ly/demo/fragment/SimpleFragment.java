@@ -41,7 +41,7 @@ public class SimpleFragment extends BaselazyLoadFragment {
     }
 
     private void init() {
-        parentLayout =view.findViewById(R.id.llayout);
+        parentLayout = view.findViewById(R.id.llayout);
         swipe = view.findViewById(R.id.swipe);
         rv = view.findViewById(R.id.rv);
         mDatas = new ArrayList<>();
@@ -86,21 +86,3 @@ public class SimpleFragment extends BaselazyLoadFragment {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

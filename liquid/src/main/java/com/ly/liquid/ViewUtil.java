@@ -28,9 +28,9 @@ public class ViewUtil {
     public static void setInfo(View layoutView, String tipText, int imageRes, int paramColor, View.OnClickListener clickListener) {
         //如果是gif布局，则处理完后退出
         if (isGifLayout(layoutView)) {
-            ViewUtil.setGifInfo(layoutView, imageRes, tipText);
+            ViewUtil.setGifInfo(layoutView, tipText, imageRes);
         } else {
-            setTipInfo(layoutView, imageRes, tipText, clickListener);
+            setTipInfo(layoutView, tipText, imageRes, clickListener);
         }
         setBackgroundColor(layoutView, paramColor);
     }
@@ -43,7 +43,7 @@ public class ViewUtil {
      * @param tipText       提示文字
      * @param clickListener 点击事件
      */
-    private static void setTipInfo(View layoutView, int imageRes, String tipText, View.OnClickListener clickListener) {
+    private static void setTipInfo(View layoutView, String tipText, int imageRes, View.OnClickListener clickListener) {
         ImageView image = layoutView.findViewById(R.id.iv_tip);
         if (image == null) {
             Log.e(TAG, "not found ImageView R.id.tip");
@@ -58,29 +58,29 @@ public class ViewUtil {
      * 填充GIF面板
      *
      * @param layoutView 父容器
-     * @param rid        GIF资源
+     * @param imageRes   GIF资源
      * @param tipText    提示文字
      */
-    private static void setGifInfo(View layoutView, int rid, String tipText) {
+    private static void setGifInfo(View layoutView, String tipText, int imageRes) {
         String tip = tipText.isEmpty() ? LiquidStyle.getDefault().getLoadText() : tipText;
         setText(layoutView, tip);
-        startGifAnim(layoutView, rid);
+        startGifAnim(layoutView, imageRes);
     }
 
     /**
      * 设置提示文案
      *
      * @param layoutView 父布局
-     * @param str        提示文案
+     * @param tipText    提示文案
      */
-    private static void setText(View layoutView, String str) {
+    private static void setText(View layoutView, String tipText) {
         LiquidStyle style = LiquidStyle.getDefault();
         TextView textView = layoutView.findViewById(R.id.tv_tip);
         if (textView == null) {
             Log.e(TAG, "not found TextView R.id.tv_tip");
             return;
         }
-        textView.setText(str);
+        textView.setText(tipText);
         textView.setTextSize(style.getTextSize());
         textView.setTextColor(style.getTextColor());
     }
@@ -102,14 +102,14 @@ public class ViewUtil {
         }
     }
 
-    private static void startGifAnim(View layoutView, int rid) {
+    private static void startGifAnim(View layoutView, int imageRes) {
         //播放gif动画
         GifImageView gifImageView = layoutView.findViewById(R.id.iv_gif);
         if (gifImageView == null) {
             Log.e(TAG, "not found GifImageView R.id.iv_gif");
             return;
         }
-        gifImageView.setImageResource(rid);
+        gifImageView.setImageResource(imageRes);
         GifDrawable gifDrawable = (GifDrawable) gifImageView.getDrawable();
         if (gifDrawable == null) {
             Log.e(TAG, "gifDrawable == null");

@@ -24,18 +24,14 @@ public class ViewGroupActivity extends AppCompatActivity {
     }
 
     private void init() {
-        mLlayout=findViewById(R.id.llayout);
-
-
+        mLlayout = findViewById(R.id.llayout);
         Liquid.showClickView(mLlayout, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showLoading();
             }
         });
-
     }
-
 
     private void showLoading() {
         Liquid.showLoadingView(mLlayout);
