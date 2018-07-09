@@ -62,3 +62,9 @@
 ```
 当传入对象是Activity类型时，会将视图添加到 android.R.id.content ，也就是通常setContent的控件下。
 当传入对象是ViewGroup类型时，则会作为子View添加在ViewGroup控件中。支持父容器：FrameLayout，RelativeLayout，LinearLayout
+自定义加载布局：
+            LiquidStyle.init()
+                 //自定义 简单提示/点击事件布局，需要满足有一个id为tv_tip的TextView和一个id为iv_tip的ImageView
+                .setClickLayoutRes(R.layout.layout_error)
+                 //自定义 动画布局，需要满足有一个id为tv_tip的TextView和一个id为iv_gif的GifImageView
+                .setGifLayoutRes(R.layout.layout_loading);
