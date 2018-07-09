@@ -107,7 +107,7 @@ public class Liquid {
     /**
      * 显示网络加载布局
      *
-     * @param viewGroup 父容器
+     * @param viewGroup 父布局
      * @param imageRes  GIF资源
      */
     private void doGifLayout(ViewGroup viewGroup, String tipText, int imageRes) {
@@ -118,7 +118,7 @@ public class Liquid {
     /**
      * 显示点击事件布局（非GIF）
      *
-     * @param viewGroup     父容器
+     * @param viewGroup     父布局
      * @param tipText       提示文案
      * @param imageRes      提示图片
      * @param clickListener 点击监听
@@ -131,7 +131,7 @@ public class Liquid {
     /**
      * 添加布局
      *
-     * @param viewGroup     父容器
+     * @param viewGroup     父布局
      * @param tipText       提示文案
      * @param imageRes      提示图片
      * @param LayoutRes     父布局资源

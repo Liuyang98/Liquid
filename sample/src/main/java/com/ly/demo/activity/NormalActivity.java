@@ -33,7 +33,7 @@ public class NormalActivity extends AppCompatActivity {
 
     private void showLoading() {
         new Liquid.Builder()
-                .setText("加载中……")
+                .setText("加载中")
                 .build(this)
                 .showLoadingView();
 

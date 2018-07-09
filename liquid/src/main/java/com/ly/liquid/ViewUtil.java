@@ -20,15 +20,14 @@ public class ViewUtil {
     /**
      * 填充事务面板
      *
-     * @param layoutView    父容器
+     * @param layoutView    父布局
      * @param tipText       提示文字
      * @param imageRes      提示图片
      * @param clickListener 点击事件
      */
     public static void setInfo(View layoutView, String tipText, int imageRes, int paramColor, View.OnClickListener clickListener) {
-        //如果是gif布局，则处理完后退出
         if (isGifLayout(layoutView)) {
-            ViewUtil.setGifInfo(layoutView, tipText, imageRes);
+            setGifInfo(layoutView, tipText, imageRes);
         } else {
             setTipInfo(layoutView, tipText, imageRes, clickListener);
         }
@@ -38,7 +37,7 @@ public class ViewUtil {
     /**
      * 填充tip面板
      *
-     * @param layoutView    父容器
+     * @param layoutView    父布局
      * @param imageRes      图片资源
      * @param tipText       提示文字
      * @param clickListener 点击事件
@@ -47,17 +46,17 @@ public class ViewUtil {
         ImageView image = layoutView.findViewById(R.id.iv_tip);
         if (image == null) {
             Log.e(TAG, "not found ImageView R.id.tip");
-            return;
+        } else {
+            image.setImageResource(imageRes);
+            setText(layoutView, tipText);
+            layoutView.setOnClickListener(clickListener);
         }
-        image.setImageResource(imageRes);
-        setText(layoutView, tipText);
-        layoutView.setOnClickListener(clickListener);
     }
 
     /**
      * 填充GIF面板
      *
-     * @param layoutView 父容器
+     * @param layoutView 父布局
      * @param imageRes   GIF资源
      * @param tipText    提示文字
      */
@@ -88,8 +87,8 @@ public class ViewUtil {
     /**
      * 设置背景
      *
-     * @param layoutView
-     * @param paramColor
+     * @param layoutView 父布局
+     * @param paramColor 背景色
      */
     private static void setBackgroundColor(View layoutView, int paramColor) {
         LiquidStyle liStyle = LiquidStyle.getDefault();
@@ -102,6 +101,12 @@ public class ViewUtil {
         }
     }
 
+    /**
+     * 播放Gif图片
+     *
+     * @param layoutView 父布局
+     * @param imageRes   gif图片资源
+     */
     private static void startGifAnim(View layoutView, int imageRes) {
         //播放gif动画
         GifImageView gifImageView = layoutView.findViewById(R.id.iv_gif);
@@ -120,9 +125,6 @@ public class ViewUtil {
 
     /**
      * 获取 Content控件
-     *
-     * @param activity
-     * @return
      */
     public static ViewGroup getContentView(Activity activity) {
         return activity.findViewById(android.R.id.content);
