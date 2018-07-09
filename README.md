@@ -60,11 +60,18 @@
        Liquid.clear(ViewGroup viewGroup);
 
 ```
-当传入对象是Activity类型时，会将视图添加到 android.R.id.content ，也就是通常setContent的控件下。
-当传入对象是ViewGroup类型时，则会作为子View添加在ViewGroup控件中。支持父容器：FrameLayout，RelativeLayout，LinearLayout
 自定义加载布局：
+
+```
             LiquidStyle.init()
                 .setClickLayoutRes(R.layout.layout_error)
                 .setGifLayoutRes(R.layout.layout_loading);
+                
+```
 替换布局文件与原布局的控件ID一致即可
+
+
+
+当传入对象是Activity类型时，会将视图添加到 android.R.id.content ，也就是通常setContent的控件下。
+当传入对象是ViewGroup类型时，则会作为子View添加在ViewGroup控件中。支持父容器：FrameLayout，RelativeLayout，LinearLayout
                 
