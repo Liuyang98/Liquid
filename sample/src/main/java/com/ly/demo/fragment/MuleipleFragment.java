@@ -12,7 +12,6 @@ import com.ly.demo.R;
 import com.ly.liquid.Liquid;
 
 public class MuleipleFragment extends BaseFragment {
-    private View mView;
 
     @Nullable
     @Override
@@ -25,7 +24,7 @@ public class MuleipleFragment extends BaseFragment {
     }
 
     private void init() {
-        TextView mTextView = mView.findViewById(R.id.tv);
+        TextView mTextView = findView(R.id.tv);
         mTextView.setText("页面编号:" + getType());
         Liquid.showClickView((ViewGroup) mView, new View.OnClickListener() {
             @Override

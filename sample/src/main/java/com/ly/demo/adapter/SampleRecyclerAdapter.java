@@ -12,14 +12,11 @@ import java.util.List;
 
 /**
  * Created by yangl.liu on 2017/5/8.
- * 主播列表适配器
  */
 public class SampleRecyclerAdapter extends BaseRecyclerAdapter<SampleRecyclerAdapter.SimHolder> {
-    private List<String> mDatas;
 
     public SampleRecyclerAdapter(Context mContext, List mDatas) {
         super(mContext, mDatas);
-        this.mDatas = mDatas;
     }
 
     @Override
@@ -29,7 +26,7 @@ public class SampleRecyclerAdapter extends BaseRecyclerAdapter<SampleRecyclerAda
 
     @Override
     public void onBindViewHolder(SimHolder viewHolder, int position) {
-        viewHolder.textView.setText(mDatas.get(position));
+        viewHolder.textView.setText(mDatas.get(position).toString());
     }
 
     class SimHolder extends RecyclerView.ViewHolder {

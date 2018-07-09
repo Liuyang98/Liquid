@@ -21,7 +21,6 @@ import java.util.List;
  */
 
 public class SimpleFragment extends BaselazyLoadFragment {
-    private View view;
     private RecyclerView rv;
     private SampleRecyclerAdapter adapter;
     private List<String> mDatas;
@@ -31,19 +30,19 @@ public class SimpleFragment extends BaselazyLoadFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if (view == null) {
-            view = inflater.inflate(R.layout.fragment_simaple, container, false);
+        if (mView == null) {
+            mView = inflater.inflate(R.layout.fragment_simaple, container, false);
             init();
             initRecy();
             isPrepared = true;
         }
-        return view;
+        return mView;
     }
 
     private void init() {
-        parentLayout = view.findViewById(R.id.llayout);
-        swipe = view.findViewById(R.id.swipe);
-        rv = view.findViewById(R.id.rv);
+        parentLayout = findView(R.id.llayout);
+        swipe = findView(R.id.swipe);
+        rv = findView(R.id.rv);
         mDatas = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             mDatas.add("测试：：" + i);

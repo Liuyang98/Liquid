@@ -23,23 +23,16 @@ public abstract class BaselazyLoadFragment extends BaseFragment {
         return !isPrepared || !isVisible || isInited;
     }
 
-    /**
-     * 可见
-     */
     protected void onVisible() {
         lazyLoad();
     }
 
-    /**
-     * 不可见
-     */
     protected void onInvisible() {
     }
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-
         isVisible = getUserVisibleHint();
         if (isVisible) {
             onVisible();

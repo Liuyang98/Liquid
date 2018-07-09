@@ -16,7 +16,7 @@ public class BaseFragment extends Fragment {
     protected View mView;
 
     protected <T extends View> T findView(int id) {
-        return (T) mView.findViewById(id);
+        return mView.findViewById(id);
     }
 
     @Override

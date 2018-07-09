@@ -3,7 +3,6 @@ package com.ly.demo.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +10,7 @@ import android.view.ViewGroup;
 import com.ly.demo.R;
 import com.ly.liquid.Liquid;
 
-public class SingleFragment extends Fragment {
-    private View mView;
+public class SingleFragment extends BaseFragment {
 
     @Nullable
     @Override

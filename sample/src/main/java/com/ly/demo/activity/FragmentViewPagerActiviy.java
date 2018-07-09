@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.ly.demo.R;
 import com.ly.demo.adapter.SamplePagerAdapter;
@@ -18,6 +17,7 @@ import java.util.List;
 
 /**
  * Created by yangl.liu on 2018/3/7.
+ * ViewPager与Fragment结合的场景
  */
 public class FragmentViewPagerActiviy extends AppCompatActivity {
     private ViewPager vp;
@@ -45,6 +45,5 @@ public class FragmentViewPagerActiviy extends AppCompatActivity {
         }
         vp.setAdapter(new SamplePagerAdapter(getSupportFragmentManager(), fragmentList, titleList));
         tabLayout.setupWithViewPager(vp);
-        vp.setVisibility(View.VISIBLE);
     }
 }
