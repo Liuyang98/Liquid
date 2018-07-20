@@ -20,6 +20,7 @@ public class Liquid {
     private volatile static Liquid defaultInstance;
     private static final LiquidStyle liStyle = LiquidStyle.getDefault();
     private LiquidParams params;
+    private static final String TAG = "Liquid";
 
     private static Liquid getDefault() {
         if (defaultInstance == null) {
@@ -139,7 +140,7 @@ public class Liquid {
      */
     private void beginShowLayout(ViewGroup viewGroup, String tipText, int imageRes, int LayoutRes, View.OnClickListener clickListener) {
         if (viewGroup == null) {
-            Log.e("Liquid", "not found viewGroup");
+            Log.e(TAG, "not found viewGroup");
             return;
         }
         Liquid.clear(viewGroup);
