@@ -19,27 +19,27 @@ public class IndexActivity extends AppCompatActivity {
         setContentView(R.layout.activity_index);
     }
 
-    public void inViewGroup(View view){
+    public void inViewGroup(View view) {
         to(ViewGroupActivity.class);
     }
 
-    public void inActivity(View view){
+    public void inActivity(View view) {
         to(NormalActivity.class);
     }
 
-    public void inFragmentSingle(View view){
+    public void inFragmentSingle(View view) {
         to(FragmentSingleActivity.class);
     }
 
-    public void inFragmentMuleiple(View view){
+    public void inFragmentMuleiple(View view) {
         to(FragmentMuleipleActivity.class);
     }
 
-    public void inFragmentViewPager(View view){
+    public void inFragmentViewPager(View view) {
         to(FragmentViewPagerActiviy.class);
     }
 
-    private void to(Class cls){
-        startActivity(new Intent(this,cls));
+    private void to(Class cls) {
+        startActivity(new Intent(this, cls));
     }
 }

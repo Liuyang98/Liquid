@@ -22,6 +22,8 @@ public class FragmentMuleipleActivity extends AppCompatActivity implements View.
     private int lastPosition;
     private List<TextView> textViews;
     private List<Fragment> fragments;
+    private final int SELECTED_COLOR = 0xffff0000;
+    private final int NORMAL_COLOR = 0xff333333;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class FragmentMuleipleActivity extends AppCompatActivity implements View.
             textViews.get(i).setOnClickListener(this);
             fragments.add(new MuleipleFragment().setType(i + 1));
         }
-        textViews.get(lastPosition).setTextColor(0xffff0000);
+        textViews.get(lastPosition).setTextColor(SELECTED_COLOR);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame_muleiple, fragments.get(lastPosition)).commit();
     }
 
@@ -58,8 +60,8 @@ public class FragmentMuleipleActivity extends AppCompatActivity implements View.
             } else {
                 fragmentBegin.add(R.id.frame_muleiple, fragments.get(p)).commitAllowingStateLoss();
             }
-            textViews.get(p).setTextColor(0xffff0000);
-            textViews.get(lastPosition).setTextColor(0xff333333);
+            textViews.get(p).setTextColor(SELECTED_COLOR);
+            textViews.get(lastPosition).setTextColor(NORMAL_COLOR);
             lastPosition = p;
         }
     }

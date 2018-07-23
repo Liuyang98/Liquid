@@ -15,7 +15,7 @@ import pl.droidsonroids.gif.GifImageView;
  * 工具类，用于填充信息和提供静态方法
  */
 public class ViewUtil {
-    private static final String TAG = "ViewUtil";
+    private static final String TAG = "Liquid.ViewUtil";
 
     /**
      * 填充事务面板
@@ -91,8 +91,8 @@ public class ViewUtil {
      * @param paramColor 背景色
      */
     private static void setBackgroundColor(View layoutView, int paramColor) {
-        LiquidStyle liStyle = LiquidStyle.getDefault();
         if (paramColor == 0) {
+            LiquidStyle liStyle = LiquidStyle.getDefault();
             if (liStyle.getBackgroundColor() != 0) {
                 layoutView.setBackgroundColor(liStyle.getBackgroundColor());
             }
@@ -114,11 +114,12 @@ public class ViewUtil {
             Log.e(TAG, "not found GifImageView R.id.iv_gif");
             return;
         }
-        gifImageView.setImageResource(imageRes);
+
         GifDrawable gifDrawable = (GifDrawable) gifImageView.getDrawable();
         if (gifDrawable == null) {
             Log.e(TAG, "gifDrawable == null");
         } else {
+            gifImageView.setImageResource(imageRes);
             gifDrawable.start();
         }
     }
