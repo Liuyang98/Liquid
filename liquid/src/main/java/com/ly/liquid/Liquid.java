@@ -167,7 +167,7 @@ public class Liquid {
     }
 
     /**
-     * 建造者类
+     * 建造者类，内部可以使Liquid的构造方法为private
      */
     public static class Builder {
         private LiquidParams params;

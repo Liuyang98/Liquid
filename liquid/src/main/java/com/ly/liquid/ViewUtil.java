@@ -15,7 +15,7 @@ import pl.droidsonroids.gif.GifImageView;
  * 工具类，用于填充信息和提供静态方法
  */
 public class ViewUtil {
-    private static final String TAG = "Liquid.ViewUtil";
+    private static final String TAG = "Liquid";
 
     /**
      * 填充事务面板
@@ -108,18 +108,17 @@ public class ViewUtil {
      * @param imageRes   gif图片资源
      */
     private static void startGifAnim(View layoutView, int imageRes) {
-        //播放gif动画
         GifImageView gifImageView = layoutView.findViewById(R.id.iv_gif);
         if (gifImageView == null) {
             Log.e(TAG, "not found GifImageView R.id.iv_gif");
             return;
         }
 
+        gifImageView.setImageResource(imageRes);
         GifDrawable gifDrawable = (GifDrawable) gifImageView.getDrawable();
         if (gifDrawable == null) {
             Log.e(TAG, "gifDrawable == null");
         } else {
-            gifImageView.setImageResource(imageRes);
             gifDrawable.start();
         }
     }

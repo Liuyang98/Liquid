@@ -7,7 +7,7 @@ import android.view.View;
  * 拦截点击事件的监听器
  */
 public class InterceptListener implements View.OnClickListener {
-    private static InterceptListener interceptListener;
+    private static volatile InterceptListener interceptListener;
 
     private InterceptListener() {
     }
