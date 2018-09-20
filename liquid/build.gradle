@@ -22,5 +22,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation rootProject.ext.supportDependencies.junit
-    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.11'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.11'
 }
