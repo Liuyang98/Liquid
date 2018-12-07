@@ -1,11 +1,13 @@
 package com.ly.demo.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.ly.demo.R;
 import com.ly.demo.fragment.SingleFragment;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 /**
  * 单个Fragment
  */

@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.ly.liquid.interfaces.Allem;
+
 /**
  * Created by yangl.liu on 2018/3/5.
  * 总功能类，提供了默认静态类，也可以通过Builder创建实例
@@ -35,29 +37,6 @@ public class Liquid {
 
     private Liquid(LiquidParams params) {
         this.params = params;
-    }
-
-    /**
-     * 显示简单提示布局（无点击事件）——默认
-     */
-    public static void showTipView(Activity activity) {
-        showTipView(ViewUtil.getContentView(activity));
-    }
-
-    /**
-     * 显示简单提示布局（无点击事件）——默认
-     */
-    public static void showTipView(ViewGroup viewGroup) {
-        getDefault().doClickLayout(viewGroup, liStyle.getNoneText(), liStyle.getNoneImage(), getDefault().params.interceptListener);
-    }
-
-    /**
-     * 显示简单提示布局（无点击事件）——param
-     */
-    public void showTipView() {
-        String customTip = params.tipText == null ? liStyle.getNoneText() : params.tipText;
-        int customImageRes = params.tipImageRes == 0 ? liStyle.getNoneImage() : params.tipImageRes;
-        doClickLayout(params.parentLayout, customTip, customImageRes, params.interceptListener);
     }
 
     /**
@@ -112,8 +91,8 @@ public class Liquid {
      * @param imageRes  GIF资源
      */
     private void doGifLayout(ViewGroup viewGroup, String tipText, int imageRes) {
-        int loadingRid = liStyle.getGifLayoutRes() == 0 ? R.layout.liquid_default_layout_loading : liStyle.getGifLayoutRes();
-        beginShowLayout(viewGroup, tipText, imageRes, loadingRid, getDefault().params.interceptListener);
+        int loadingRid = liStyle.getGifLayoutRes() == null ? R.layout.liquid_default_layout_loading : liStyle.getGifLayoutRes();
+        beginShowLayout(viewGroup, tipText, imageRes, loadingRid, getDefault().params.interceptListener, Allem.LAYOUT_TYPE.GIF);
     }
 
     /**
@@ -125,8 +104,8 @@ public class Liquid {
      * @param clickListener 点击监听
      */
     private void doClickLayout(ViewGroup viewGroup, String tipText, int imageRes, View.OnClickListener clickListener) {
-        int clickRid = liStyle.getClickLayoutRes() == 0 ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
-        beginShowLayout(viewGroup, tipText, imageRes, clickRid, clickListener);
+        int clickRid = liStyle.getClickLayoutRes() ==  null ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
+        beginShowLayout(viewGroup, tipText, imageRes, clickRid, clickListener, Allem.LAYOUT_TYPE.NORMAL);
     }
 
     /**
@@ -138,7 +117,7 @@ public class Liquid {
      * @param LayoutRes     父布局资源
      * @param clickListener 点击监听
      */
-    private void beginShowLayout(ViewGroup viewGroup, String tipText, int imageRes, int LayoutRes, View.OnClickListener clickListener) {
+    private void beginShowLayout(ViewGroup viewGroup, String tipText, int imageRes, int LayoutRes, View.OnClickListener clickListener, int layoutType) {
         if (viewGroup == null) {
             Log.e(TAG, "not found viewGroup");
             return;
@@ -149,7 +128,7 @@ public class Liquid {
         childView.setId(VIEW_LIQUID);
         int vIndex = viewGroup instanceof LinearLayout ? 0 : -1;
         viewGroup.addView(childView, vIndex, mParams);
-        ViewUtil.setInfo(childView, tipText, imageRes, params.backgroundColor, clickListener);
+        ViewUtil.setInfo(childView, tipText, imageRes, params, layoutType, clickListener);
     }
 
     /**
@@ -178,6 +157,16 @@ public class Liquid {
 
         public Builder setText(String tipText) {
             params.tipText = tipText;
+            return this;
+        }
+
+        public Builder setTextColor(int textColor) {
+            params.tipTextColor = textColor;
+            return this;
+        }
+
+        public Builder setTextSize(int textColor) {
+            params.tipTextSize = textColor;
             return this;
         }
 

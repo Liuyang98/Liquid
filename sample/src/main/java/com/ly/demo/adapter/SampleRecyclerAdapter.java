@@ -1,7 +1,6 @@
 package com.ly.demo.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -9,6 +8,8 @@ import android.widget.TextView;
 import com.ly.demo.R;
 
 import java.util.List;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by yangl.liu on 2017/5/8.

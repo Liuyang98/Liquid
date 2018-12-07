@@ -2,8 +2,9 @@ package com.ly.demo.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.View;
+
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by yangl.liu on 2017/4/19.

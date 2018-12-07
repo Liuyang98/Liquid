@@ -1,12 +1,8 @@
 package com.ly.demo.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
+import com.google.android.material.tabs.TabLayout;
 import com.ly.demo.R;
 import com.ly.demo.adapter.SamplePagerAdapter;
 import com.ly.demo.fragment.LoadErrorFragment;
@@ -14,6 +10,11 @@ import com.ly.demo.fragment.SimpleFragment;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 /**
  * Created by yangl.liu on 2018/3/7.

@@ -1,11 +1,14 @@
 package com.ly.liquid;
 
+import com.ly.liquid.interfaces.LiquidLoader;
+
 /**
  * Created by yangl.liu on 2018/3/6.
  * 全局风格控制类
  */
 public class LiquidStyle {
     private volatile static LiquidStyle liquidStyle;
+    private LiquidLoader liquidLoader;
     private String errorText;
     private String loadText;
     private String noneText;
@@ -14,9 +17,9 @@ public class LiquidStyle {
     private int noneImage;
     private int textSize;
     private int textColor;
-    private int backgroundColor;
-    private int gifLayoutRes;
-    private int clickLayoutRes;
+    private Integer backgroundColor;
+    private Integer gifLayoutRes;
+    private Integer clickLayoutRes;
 
     public static LiquidStyle getDefault() {
         if (liquidStyle == null) {
@@ -68,24 +71,33 @@ public class LiquidStyle {
         return this;
     }
 
+    public LiquidStyle setLiquidLoader(LiquidLoader liquidLoader) {
+        this.liquidLoader = liquidLoader;
+        return this;
+    }
+
     public LiquidStyle setTextColor(int textColor) {
         this.textColor = textColor;
         return this;
     }
 
-    public LiquidStyle setGifLayoutRes(int gifLayoutRes) {
+    public LiquidStyle setGifLayoutRes(Integer gifLayoutRes) {
         this.gifLayoutRes = gifLayoutRes;
         return this;
     }
 
-    public LiquidStyle setClickLayoutRes(int clickLayoutRes) {
+    public LiquidStyle setClickLayoutRes(Integer clickLayoutRes) {
         this.clickLayoutRes = clickLayoutRes;
         return this;
     }
 
-    public LiquidStyle setBackgroundColor(int backgroundColor) {
+    public LiquidStyle setBackgroundColor(Integer backgroundColor) {
         this.backgroundColor = backgroundColor;
         return this;
+    }
+
+    public LiquidLoader getLiquidLoader() {
+        return liquidLoader;
     }
 
     public int getErrorIamge() {
@@ -120,15 +132,16 @@ public class LiquidStyle {
         return textColor;
     }
 
-    public int getGifLayoutRes() {
+
+    public Integer getGifLayoutRes() {
         return gifLayoutRes;
     }
 
-    public int getClickLayoutRes() {
+    public Integer getClickLayoutRes() {
         return clickLayoutRes;
     }
 
-    public int getBackgroundColor() {
+    public Integer getBackgroundColor() {
         return backgroundColor;
     }
 }

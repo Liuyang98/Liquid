@@ -1,13 +1,13 @@
 package com.ly.demo.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 
 import com.ly.demo.R;
 import com.ly.liquid.Liquid;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * 普通Activity中使用
@@ -34,6 +34,9 @@ public class NormalActivity extends AppCompatActivity {
     private void showLoading() {
         new Liquid.Builder()
                 .setText("加载中")
+                .setTextColor(0xffdddddd)
+                .setImageRes(R.mipmap.trans_load)
+                .setTextSize(20)
                 .build(this)
                 .showLoadingView();
 
@@ -43,6 +46,5 @@ public class NormalActivity extends AppCompatActivity {
                 Liquid.clear(NormalActivity.this);
             }
         }, 1500);
-
     }
 }

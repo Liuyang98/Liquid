@@ -5,10 +5,10 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/iv_gif"
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
+    <ImageView
+        android:id="@+id/iv_tip"
+        android:layout_width="170dp"
+        android:layout_height="60dp" />
 
     <TextView
         android:id="@+id/tv_tip"
