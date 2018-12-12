@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ly.liquid.interfaces.Allem;
+import com.ly.liquid.pojo.LiquidParams;
+import com.ly.liquid.pojo.LiquidStyle;
 
 /**
  * Created by yangl.liu on 2018/3/8.
@@ -62,8 +64,8 @@ public class ViewUtil {
             image.setImageResource(imageRes);
         }
         textView.setText(tipText);
-        textView.setTextSize(liquidParams.tipTextSize == 0 ? style.getTextSize() : liquidParams.tipTextSize);
-        textView.setTextColor(liquidParams.tipTextColor == 0 ? style.getTextColor() : liquidParams.tipTextColor);
+        textView.setTextSize(liquidParams.tipTextSize == null ? style.getTextSize() : liquidParams.tipTextSize);
+        textView.setTextColor(liquidParams.tipTextColor == null ? style.getTextColor() : liquidParams.tipTextColor);
         layoutView.setOnClickListener(clickListener);
     }
 

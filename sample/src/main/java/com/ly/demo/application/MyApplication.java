@@ -1,18 +1,17 @@
 package com.ly.demo.application;
 
 import android.app.Application;
-import android.util.Log;
 
 import com.ly.demo.R;
 import com.ly.demo.interfaces.SampleLoader;
-import com.ly.liquid.LiquidStyle;
+import com.ly.liquid.pojo.LiquidStyle;
 
 /**
  * Created by yangl.liu on 2018/3/7.
  */
 
 public class MyApplication extends Application {
-    private static final String TAG = "MyApplication";
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -21,7 +20,7 @@ public class MyApplication extends Application {
     }
 
     private void initTrans() {
-       LiquidStyle.init()
+        LiquidStyle.init()
                 .setBackgroundColor(0xffffffff)
                 .setErrorIamge(R.mipmap.trans_fail)
                 .setLoadImage(R.mipmap.trans_load)

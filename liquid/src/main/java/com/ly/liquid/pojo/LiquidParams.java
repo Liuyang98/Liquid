@@ -1,7 +1,9 @@
-package com.ly.liquid;
+package com.ly.liquid.pojo;
 
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.ly.liquid.InterceptListener;
 
 /**
  * Created by yangl.liu on 2018/3/9.
@@ -13,11 +15,11 @@ public class LiquidParams {
     //提示文字
     public String tipText;
     //提示文字颜色
-    public int tipTextColor;
+    public Integer tipTextColor;
     //提示文字大小
-    public int tipTextSize;
+    public Integer tipTextSize;
     //提示图片
-    public int tipImageRes;
+    public Integer tipImageRes;
     //拦截点击监听
     public InterceptListener interceptListener;
     //点击事件监听
@@ -25,7 +27,7 @@ public class LiquidParams {
     //背景色
     public Integer backgroundColor;
 
-    LiquidParams() {
+    public LiquidParams() {
         interceptListener = InterceptListener.getInstance();
     }
 }

@@ -1,4 +1,4 @@
-package com.ly.liquid;
+package com.ly.liquid.pojo;
 
 import com.ly.liquid.interfaces.LiquidLoader;
 

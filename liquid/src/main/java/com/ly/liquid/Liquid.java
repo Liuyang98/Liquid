@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.ly.liquid.interfaces.Allem;
+import com.ly.liquid.pojo.LiquidParams;
+import com.ly.liquid.pojo.LiquidStyle;
 
 /**
  * Created by yangl.liu on 2018/3/5.
@@ -58,7 +60,7 @@ public class Liquid {
      */
     public void showClickView() {
         String errContent = params.tipText == null ? liStyle.getErrorText() : params.tipText;
-        int errImageRes = params.tipImageRes == 0 ? liStyle.getErrorIamge() : params.tipImageRes;
+        int errImageRes = params.tipImageRes == null ? liStyle.getErrorIamge() : params.tipImageRes;
         doClickLayout(params.parentLayout, errContent, errImageRes, params.clickListener);
     }
 
@@ -80,7 +82,7 @@ public class Liquid {
      * 显示网络加载布局——params
      */
     public void showLoadingView() {
-        int customImageRes = params.tipImageRes == 0 ? liStyle.getLoadImage() : params.tipImageRes;
+        int customImageRes = params.tipImageRes == null ? liStyle.getLoadImage() : params.tipImageRes;
         doGifLayout(params.parentLayout, params.tipText, customImageRes);
     }
 
