@@ -34,9 +34,9 @@ public class NormalActivity extends AppCompatActivity {
     private void showLoading() {
         new Liquid.Builder()
                 .setText("加载中")
+                .setTextSize(20)
                 .setTextColor(0xffdddddd)
                 .setImageRes(R.mipmap.trans_load)
-                .setTextSize(20)
                 .build(this)
                 .showLoadingView();
 
@@ -47,4 +47,6 @@ public class NormalActivity extends AppCompatActivity {
             }
         }, 1500);
     }
+
+
 }

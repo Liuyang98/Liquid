@@ -15,16 +15,15 @@ import com.ly.liquid.pojo.LiquidStyle;
  * Created by yangl.liu on 2018/3/5.
  * 总功能类，提供了默认静态类，也可以通过Builder创建实例
  * <p>
- * tipView   ：提供文案，提供静态图，无点击事件
  * clickView ：提供文案，提供静态图，有点击事件
  * gifView   ：提供文案，提供GIF图，无点击事件
  */
 public class Liquid {
+    private static final String TAG = "Liquid";
     private static final int VIEW_LIQUID = R.id.liquid_view;
     private volatile static Liquid defaultInstance;
     private static final LiquidStyle liStyle = LiquidStyle.getDefault();
     private LiquidParams params;
-    private static final String TAG = "Liquid";
 
     private static Liquid getDefault() {
         if (defaultInstance == null) {
@@ -106,7 +105,7 @@ public class Liquid {
      * @param clickListener 点击监听
      */
     private void doClickLayout(ViewGroup viewGroup, String tipText, int imageRes, View.OnClickListener clickListener) {
-        int clickRid = liStyle.getClickLayoutRes() ==  null ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
+        int clickRid = liStyle.getClickLayoutRes() == null ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
         beginShowLayout(viewGroup, tipText, imageRes, clickRid, clickListener, Allem.LAYOUT_TYPE.NORMAL);
     }
 

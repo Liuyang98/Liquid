@@ -35,6 +35,7 @@ public class SampleRecyclerAdapter extends BaseRecyclerAdapter<SampleRecyclerAda
 
         public SimHolder(View itemView) {
             super(itemView);
+
             textView = itemView.findViewById(R.id.tv_item);
         }
     }
