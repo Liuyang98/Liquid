@@ -58,10 +58,14 @@ public class ViewUtil {
         LiquidStyle style = LiquidStyle.getDefault();
         if (layoutType == Allem.LAYOUT_TYPE.GIF) {
             if (style.getLiquidLoader() != null) {
-                style.getLiquidLoader().load(image, imageRes);
+                style.getLiquidLoader().loadGif(image, imageRes);
             }
         } else {
-            image.setImageResource(imageRes);
+            if (style.getLiquidLoader() == null) {
+                image.setImageResource(imageRes);
+            } else {
+                style.getLiquidLoader().load(image, imageRes);
+            }
         }
         textView.setText(tipText);
         textView.setTextSize(liquidParams.tipTextSize == null ? style.getTextSize() : liquidParams.tipTextSize);

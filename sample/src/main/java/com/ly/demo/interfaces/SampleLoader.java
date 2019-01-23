@@ -25,4 +25,24 @@ public class SampleLoader implements LiquidLoader {
                 .apply(options)
                 .into(imageView);
     }
+
+    @Override
+    public void loadGif(ImageView imageView, String url) {
+        RequestOptions options = new RequestOptions().centerCrop();
+        Glide.with(imageView.getContext())
+                .asBitmap()
+                .load(url)
+                .apply(options)
+                .into(imageView);
+    }
+
+    @Override
+    public void loadGif(ImageView imageView, int url) {
+        RequestOptions options = new RequestOptions().centerCrop();
+        Glide.with(imageView.getContext())
+                .asBitmap()
+                .load(url)
+                .apply(options)
+                .into(imageView);
+    }
 }
