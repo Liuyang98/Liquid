@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.ly.liquid.interfaces.Allem;
 import com.ly.liquid.pojo.LiquidParams;
 import com.ly.liquid.pojo.LiquidStyle;
 
@@ -41,95 +40,21 @@ public class Liquid {
     }
 
     /**
-     * 显示点击事件布局——默认
-     */
-    public static void showClickView(Activity activity, View.OnClickListener clickListener) {
-        showClickView(ViewUtil.getContentView(activity), clickListener);
-    }
-
-    /**
-     * 显示点击事件布局——默认
-     */
-    public static void showClickView(ViewGroup viewGroup, View.OnClickListener clickListener) {
-        getDefault().doClickLayout(viewGroup, liStyle.getNoneText(), liStyle.getNoneImage(), clickListener);
-    }
-
-    /**
      * 显示点击事件布局——param
      */
-    public void showClickView() {
-        String errContent = params.tipText == null ? liStyle.getErrorText() : params.tipText;
-        int errImageRes = params.tipImageRes == null ? liStyle.getErrorIamge() : params.tipImageRes;
-        doClickLayout(params.parentLayout, errContent, errImageRes, params.clickListener);
-    }
-
-    /**
-     * 显示网络加载布局——默认
-     */
-    public static void showLoadingView(Activity activity) {
-        showLoadingView(ViewUtil.getContentView(activity));
-    }
-
-    /**
-     * 显示网络加载布局——默认
-     */
-    public static void showLoadingView(ViewGroup parentLayout) {
-        getDefault().doGifLayout(parentLayout, "", liStyle.getLoadImage());
-    }
-
-    /**
-     * 显示网络加载布局——params
-     */
-    public void showLoadingView() {
-        int customImageRes = params.tipImageRes == null ? liStyle.getLoadImage() : params.tipImageRes;
-        doGifLayout(params.parentLayout, params.tipText, customImageRes);
-    }
-
-    /**
-     * 显示网络加载布局
-     *
-     * @param viewGroup 父布局
-     * @param imageRes  GIF资源
-     */
-    private void doGifLayout(ViewGroup viewGroup, String tipText, int imageRes) {
-        int loadingRid = liStyle.getGifLayoutRes() == null ? R.layout.liquid_default_layout_loading : liStyle.getGifLayoutRes();
-        beginShowLayout(viewGroup, tipText, imageRes, loadingRid, getDefault().params.interceptListener, Allem.LAYOUT_TYPE.GIF);
-    }
-
-    /**
-     * 显示点击事件布局（非GIF）
-     *
-     * @param viewGroup     父布局
-     * @param tipText       提示文案
-     * @param imageRes      提示图片
-     * @param clickListener 点击监听
-     */
-    private void doClickLayout(ViewGroup viewGroup, String tipText, int imageRes, View.OnClickListener clickListener) {
-        int clickRid = liStyle.getClickLayoutRes() == null ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
-        beginShowLayout(viewGroup, tipText, imageRes, clickRid, clickListener, Allem.LAYOUT_TYPE.NORMAL);
-    }
-
-    /**
-     * 添加布局
-     *
-     * @param viewGroup     父布局
-     * @param tipText       提示文案
-     * @param imageRes      提示图片
-     * @param LayoutRes     父布局资源
-     * @param clickListener 点击监听
-     */
-    private void beginShowLayout(ViewGroup viewGroup, String tipText, int imageRes, int LayoutRes, View.OnClickListener clickListener, int layoutType) {
-        if (viewGroup == null) {
+    public void show() {
+        if (params.parentLayout == null) {
             Log.e(TAG, "not found viewGroup");
             return;
         }
-        Liquid.clear(viewGroup);
-        View childView = LayoutInflater.from(viewGroup.getContext()).inflate(LayoutRes, null);
+        Liquid.clear(params.parentLayout);
+        int clickRid = liStyle.getClickLayoutRes() == null ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
+        View childView = LayoutInflater.from(params.parentLayout.getContext()).inflate(clickRid, null);
         ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         childView.setId(VIEW_LIQUID);
-        int vIndex = viewGroup instanceof LinearLayout ? 0 : -1;
-        viewGroup.addView(childView, vIndex, mParams);
-        ViewUtil.setInfo(childView, tipText, imageRes, params, layoutType, clickListener);
+        int vIndex = params.parentLayout instanceof LinearLayout ? 0 : -1;
+        params.parentLayout.addView(childView, vIndex, mParams);
+        ViewUtil.setInfo(childView, params);
     }
 
     /**
@@ -156,23 +81,28 @@ public class Liquid {
             params = new LiquidParams();
         }
 
-        public Builder setText(String tipText) {
-            params.tipText = tipText;
+        public Builder setText(String text) {
+            params.text = text;
             return this;
         }
 
         public Builder setTextColor(int textColor) {
-            params.tipTextColor = textColor;
+            params.textColor = textColor;
             return this;
         }
 
-        public Builder setTextSize(int textColor) {
-            params.tipTextSize = textColor;
+        public Builder setTextSize(int textSize) {
+            params.textSize = textSize;
             return this;
         }
 
-        public Builder setImageRes(int tipImageRes) {
-            params.tipImageRes = tipImageRes;
+        public Builder setImg(int imgRes) {
+            params.imgRes = imgRes;
+            return this;
+        }
+
+        public Builder asGif() {
+            params.asGif = true;
             return this;
         }
 

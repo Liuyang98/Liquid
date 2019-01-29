@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.ly.demo.R;
 import com.ly.demo.adapter.SampleRecyclerAdapter;
+import com.ly.demo.util.SampleUtil;
 import com.ly.liquid.Liquid;
 
 import java.util.ArrayList;
@@ -74,7 +75,7 @@ public class SimpleFragment extends BaselazyLoadFragment {
     }
 
     private void loadData() {
-        Liquid.showLoadingView(parentLayout);
+        SampleUtil.showLoading(parentLayout);
         swipe.postDelayed(new Runnable() {
             @Override
             public void run() {

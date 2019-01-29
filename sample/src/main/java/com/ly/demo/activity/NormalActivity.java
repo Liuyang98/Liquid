@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.ly.demo.R;
+import com.ly.demo.util.SampleUtil;
 import com.ly.liquid.Liquid;
 
 import androidx.annotation.Nullable;
@@ -23,7 +24,7 @@ public class NormalActivity extends AppCompatActivity {
     }
 
     private void init() {
-        Liquid.showClickView(this, new View.OnClickListener() {
+        SampleUtil.showErrorLayout(this, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showLoading();
@@ -32,13 +33,7 @@ public class NormalActivity extends AppCompatActivity {
     }
 
     private void showLoading() {
-        new Liquid.Builder()
-                .setText("加载中")
-                .setTextSize(20)
-                .setTextColor(0xffdddddd)
-                .setImageRes(R.mipmap.trans_load)
-                .build(this)
-                .showLoadingView();
+        SampleUtil.showLoading(this);
 
         getWindow().getDecorView().postDelayed(new Runnable() {
             @Override
@@ -47,6 +42,5 @@ public class NormalActivity extends AppCompatActivity {
             }
         }, 1500);
     }
-
 
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ly.demo.R;
+import com.ly.demo.util.SampleUtil;
 import com.ly.liquid.Liquid;
 
 import androidx.annotation.NonNull;
@@ -25,9 +26,8 @@ public class MuleipleFragment extends BaseFragment {
     }
 
     private void init() {
-        TextView mTextView = findView(R.id.tv);
-        mTextView.setText("页面编号:" + getType());
-        Liquid.showClickView((ViewGroup) mView, new View.OnClickListener() {
+        ((TextView) findView(R.id.tv)).setText("页面编号:" + getType());
+        SampleUtil.showErrorLayout((ViewGroup) mView, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showLoading();
@@ -36,7 +36,7 @@ public class MuleipleFragment extends BaseFragment {
     }
 
     private void showLoading() {
-        Liquid.showLoadingView((ViewGroup) mView);
+        SampleUtil.showLoading((ViewGroup) mView);
         mView.postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -20,18 +20,10 @@ public class MyApplication extends Application {
     }
 
     private void initTrans() {
-        LiquidStyle.init()
+        LiquidStyle
+                .init()
+                .setLayoutRes(R.layout.layout_error)
                 .setBackgroundColor(0xffffffff)
-                .setErrorIamge(R.mipmap.trans_fail)
-                .setLoadImage(R.mipmap.trans_load)
-                .setNoneImage(R.mipmap.trans_none)
-                .setErrorText("网络加载异常")
-                .setLoadText("加载中")
-                .setNoneText("没有找到内容")
-                .setTextColor(0xffdddddd)
-                .setTextSize(20)
-                .setLiquidLoader(new SampleLoader())
-                .setClickLayoutRes(R.layout.layout_error)
-                .setGifLayoutRes(R.layout.layout_loading);
+                .setLiquidLoader(new SampleLoader());
     }
 }

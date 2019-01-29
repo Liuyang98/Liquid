@@ -13,19 +13,21 @@ public class LiquidParams {
     //父布局
     public ViewGroup parentLayout;
     //提示文字
-    public String tipText;
+    public String text;
     //提示文字颜色
-    public Integer tipTextColor;
+    public Integer textColor;
     //提示文字大小
-    public Integer tipTextSize;
+    public Integer textSize;
     //提示图片
-    public Integer tipImageRes;
+    public Integer imgRes;
     //拦截点击监听
     public InterceptListener interceptListener;
     //点击事件监听
     public View.OnClickListener clickListener;
     //背景色
     public Integer backgroundColor;
+    //GIF图
+    public boolean asGif;
 
     public LiquidParams() {
         interceptListener = InterceptListener.getInstance();

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ly.demo.R;
+import com.ly.demo.util.SampleUtil;
 import com.ly.liquid.Liquid;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,7 @@ public class SingleFragment extends BaseFragment {
     }
 
     private void init() {
-        Liquid.showClickView((ViewGroup) mView, new View.OnClickListener() {
+        SampleUtil.showErrorLayout((ViewGroup) mView, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showLoading();
@@ -33,7 +34,7 @@ public class SingleFragment extends BaseFragment {
     }
 
     private void showLoading() {
-        Liquid.showLoadingView((ViewGroup) mView);
+        SampleUtil.showLoading((ViewGroup) mView);
         mView.postDelayed(new Runnable() {
             @Override
             public void run() {

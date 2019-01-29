@@ -9,16 +9,9 @@ import com.ly.liquid.interfaces.LiquidLoader;
 public class LiquidStyle {
     private volatile static LiquidStyle liquidStyle;
     private LiquidLoader liquidLoader;
-    private String errorText;
-    private String loadText;
-    private String noneText;
-    private int errorIamge;
-    private int loadImage;
-    private int noneImage;
     private int textSize;
     private int textColor;
     private Integer backgroundColor;
-    private Integer gifLayoutRes;
     private Integer clickLayoutRes;
 
     public static LiquidStyle getDefault() {
@@ -36,36 +29,6 @@ public class LiquidStyle {
         return getDefault();
     }
 
-    public LiquidStyle setErrorIamge(int errorIamge) {
-        this.errorIamge = errorIamge;
-        return this;
-    }
-
-    public LiquidStyle setLoadImage(int loadImage) {
-        this.loadImage = loadImage;
-        return this;
-    }
-
-    public LiquidStyle setNoneImage(int noneImage) {
-        this.noneImage = noneImage;
-        return this;
-    }
-
-    public LiquidStyle setErrorText(String errorText) {
-        this.errorText = errorText;
-        return this;
-    }
-
-    public LiquidStyle setLoadText(String loadText) {
-        this.loadText = loadText;
-        return this;
-    }
-
-    public LiquidStyle setNoneText(String noneText) {
-        this.noneText = noneText;
-        return this;
-    }
-
     public LiquidStyle setTextSize(int textSize) {
         this.textSize = textSize;
         return this;
@@ -81,12 +44,7 @@ public class LiquidStyle {
         return this;
     }
 
-    public LiquidStyle setGifLayoutRes(Integer gifLayoutRes) {
-        this.gifLayoutRes = gifLayoutRes;
-        return this;
-    }
-
-    public LiquidStyle setClickLayoutRes(Integer clickLayoutRes) {
+    public LiquidStyle setLayoutRes(Integer clickLayoutRes) {
         this.clickLayoutRes = clickLayoutRes;
         return this;
     }
@@ -100,41 +58,12 @@ public class LiquidStyle {
         return liquidLoader;
     }
 
-    public int getErrorIamge() {
-        return errorIamge;
-    }
-
-    public int getLoadImage() {
-        return loadImage;
-    }
-
-    public int getNoneImage() {
-        return noneImage;
-    }
-
-    public String getErrorText() {
-        return errorText;
-    }
-
-    public String getLoadText() {
-        return loadText;
-    }
-
-    public String getNoneText() {
-        return noneText;
-    }
-
     public int getTextSize() {
         return textSize;
     }
 
     public int getTextColor() {
         return textColor;
-    }
-
-
-    public Integer getGifLayoutRes() {
-        return gifLayoutRes;
     }
 
     public Integer getClickLayoutRes() {

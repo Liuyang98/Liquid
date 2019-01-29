@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.ly.liquid.interfaces.Allem;
 import com.ly.liquid.pojo.LiquidParams;
 import com.ly.liquid.pojo.LiquidStyle;
 
@@ -18,16 +17,8 @@ import com.ly.liquid.pojo.LiquidStyle;
 public class ViewUtil {
     private static final String TAG = "Liquid";
 
-    /**
-     * 填充事务面板
-     *
-     * @param layoutView    父布局
-     * @param tipText       提示文字
-     * @param imageRes      提示图片
-     * @param clickListener 点击事件
-     */
-    public static void setInfo(View layoutView, String tipText, int imageRes, LiquidParams liquidParams, int layoutType, View.OnClickListener clickListener) {
-        setTipInfo(layoutView, tipText, imageRes, liquidParams, layoutType, clickListener);
+    public static void setInfo(View layoutView, LiquidParams liquidParams) {
+        setTipInfo(layoutView, liquidParams);
         if (liquidParams.backgroundColor != null) {
             layoutView.setBackgroundColor(liquidParams.backgroundColor);
         } else if (LiquidStyle.getDefault().getBackgroundColor() != null) {
@@ -38,12 +29,9 @@ public class ViewUtil {
     /**
      * 填充tip面板
      *
-     * @param layoutView    父布局
-     * @param imageRes      图片资源
-     * @param tipText       提示文字
-     * @param clickListener 点击事件
+     * @param layoutView 父布局
      */
-    private static void setTipInfo(View layoutView, String tipText, int imageRes, LiquidParams liquidParams, int layoutType, View.OnClickListener clickListener) {
+    private static void setTipInfo(View layoutView, LiquidParams params) {
         ImageView image = layoutView.findViewById(R.id.iv_tip);
         TextView textView = layoutView.findViewById(R.id.tv_tip);
         if (textView == null) {
@@ -56,21 +44,23 @@ public class ViewUtil {
         }
 
         LiquidStyle style = LiquidStyle.getDefault();
-        if (layoutType == Allem.LAYOUT_TYPE.GIF) {
+        Log.e(TAG, "params.asGif: "+params.asGif +"  :   (style.getLiquidLoader() != null)"+(style.getLiquidLoader() != null) );
+
+        if (params.asGif) {
             if (style.getLiquidLoader() != null) {
-                style.getLiquidLoader().loadGif(image, imageRes);
+                style.getLiquidLoader().loadGif(image, params.imgRes);
             }
         } else {
             if (style.getLiquidLoader() == null) {
-                image.setImageResource(imageRes);
+                image.setImageResource(params.imgRes);
             } else {
-                style.getLiquidLoader().load(image, imageRes);
+                style.getLiquidLoader().load(image, params.imgRes);
             }
         }
-        textView.setText(tipText);
-        textView.setTextSize(liquidParams.tipTextSize == null ? style.getTextSize() : liquidParams.tipTextSize);
-        textView.setTextColor(liquidParams.tipTextColor == null ? style.getTextColor() : liquidParams.tipTextColor);
-        layoutView.setOnClickListener(clickListener);
+        textView.setText(params.text);
+        textView.setTextSize(params.textSize == null ? style.getTextSize() : params.textSize);
+        textView.setTextColor(params.textColor == null ? style.getTextColor() : params.textColor);
+        layoutView.setOnClickListener(params.clickListener);
     }
 
     /**

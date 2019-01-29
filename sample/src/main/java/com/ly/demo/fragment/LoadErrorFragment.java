@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.ly.demo.R;
 import com.ly.demo.adapter.SampleRecyclerAdapter;
+import com.ly.demo.util.SampleUtil;
 import com.ly.liquid.Liquid;
 
 import java.util.ArrayList;
@@ -71,15 +72,11 @@ public class LoadErrorFragment extends BaseFragment {
             }
         };
 
-        new Liquid.Builder()
-                .setClickListener(listener)
-                .setBackgroundColor(0xffffffff)
-                .build(paretLayout)
-                .showClickView();
+        SampleUtil.showErrorLayout(paretLayout, listener);
     }
 
     private void loadData() {
-        Liquid.showLoadingView(paretLayout);
+        SampleUtil.showLoading(paretLayout);
         swipe.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -96,7 +93,7 @@ public class LoadErrorFragment extends BaseFragment {
     }
 
     private void showError() {
-        Liquid.showClickView(paretLayout, new View.OnClickListener() {
+        SampleUtil.showErrorLayout(paretLayout, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadData();

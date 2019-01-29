@@ -1,10 +1,13 @@
 package com.ly.demo.activity;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.ly.demo.R;
+import com.ly.demo.util.SampleUtil;
 import com.ly.liquid.Liquid;
 
 import androidx.annotation.Nullable;
@@ -26,7 +29,7 @@ public class ViewGroupActivity extends AppCompatActivity {
 
     private void init() {
         mLlayout = findViewById(R.id.llayout);
-        Liquid.showClickView(mLlayout, new View.OnClickListener() {
+        SampleUtil.showErrorLayout(mLlayout, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showLoading();
@@ -35,7 +38,7 @@ public class ViewGroupActivity extends AppCompatActivity {
     }
 
     private void showLoading() {
-        Liquid.showLoadingView(mLlayout);
+        SampleUtil.showLoading(mLlayout);
         mLlayout.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -43,4 +46,5 @@ public class ViewGroupActivity extends AppCompatActivity {
             }
         }, 1500);
     }
+
 }

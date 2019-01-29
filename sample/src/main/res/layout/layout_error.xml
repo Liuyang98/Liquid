@@ -2,13 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center|top"
     android:orientation="vertical">
 
+
+    <!--TODO 需要解决图片适配问题-->
     <ImageView
+        android:layout_marginTop="150dp"
         android:id="@+id/iv_tip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:scaleType="centerInside"
+        android:layout_width="300dp"
+        android:layout_height="150dp" />
 
     <TextView
         android:id="@+id/tv_tip"

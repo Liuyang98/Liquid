@@ -10,7 +10,7 @@ public class SampleLoader implements LiquidLoader {
 
     @Override
     public void load(ImageView imageView, String url) {
-        RequestOptions options = new RequestOptions().centerCrop();
+        RequestOptions options = new RequestOptions();
         Glide.with(imageView.getContext())
                 .load(url)
                 .apply(options)
@@ -19,7 +19,7 @@ public class SampleLoader implements LiquidLoader {
 
     @Override
     public void load(ImageView imageView, int url) {
-        RequestOptions options = new RequestOptions().centerCrop();
+        RequestOptions options = new RequestOptions();
         Glide.with(imageView.getContext())
                 .load(url)
                 .apply(options)
@@ -28,9 +28,9 @@ public class SampleLoader implements LiquidLoader {
 
     @Override
     public void loadGif(ImageView imageView, String url) {
-        RequestOptions options = new RequestOptions().centerCrop();
+        RequestOptions options = new RequestOptions();
         Glide.with(imageView.getContext())
-                .asBitmap()
+                .asGif()
                 .load(url)
                 .apply(options)
                 .into(imageView);
@@ -38,9 +38,9 @@ public class SampleLoader implements LiquidLoader {
 
     @Override
     public void loadGif(ImageView imageView, int url) {
-        RequestOptions options = new RequestOptions().centerCrop();
+        RequestOptions options = new RequestOptions();
         Glide.with(imageView.getContext())
-                .asBitmap()
+                .asGif()
                 .load(url)
                 .apply(options)
                 .into(imageView);
