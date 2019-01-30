@@ -9,6 +9,7 @@ import com.ly.demo.R;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -21,23 +22,23 @@ public class SampleRecyclerAdapter extends BaseRecyclerAdapter<SampleRecyclerAda
     }
 
     @Override
-    public SimHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    @NonNull
+    public SimHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new SimHolder(initView(parent, R.layout.item_sample));
     }
 
     @Override
-    public void onBindViewHolder(SimHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull SimHolder viewHolder, int position) {
         viewHolder.textView.setText(mDatas.get(position).toString());
     }
 
     class SimHolder extends RecyclerView.ViewHolder {
         TextView textView;
 
-        public SimHolder(View itemView) {
+        private SimHolder(View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.tv_item);
         }
     }
-
 }

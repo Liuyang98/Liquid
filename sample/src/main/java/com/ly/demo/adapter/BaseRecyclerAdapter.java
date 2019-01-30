@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -18,16 +19,17 @@ public abstract class BaseRecyclerAdapter<T extends RecyclerView.ViewHolder> ext
     protected Context mContext;
     protected List<Object> mDatas;
 
-    public BaseRecyclerAdapter(Context mContext, List mDatas) {
+    public BaseRecyclerAdapter(Context mContext, List<Object> mDatas) {
         this.mContext = mContext;
         this.mDatas = mDatas;
     }
 
     @Override
-    public abstract T onCreateViewHolder(ViewGroup parent, int viewType);
+    @NonNull
+    public abstract T onCreateViewHolder(@NonNull ViewGroup parent, int viewType);
 
     @Override
-    public abstract void onBindViewHolder(T holder, int position);
+    public abstract void onBindViewHolder(@NonNull T holder, int position);
 
     @Override
     public int getItemCount() {

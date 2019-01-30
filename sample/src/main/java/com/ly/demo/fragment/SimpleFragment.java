@@ -85,5 +85,4 @@ public class SimpleFragment extends BaselazyLoadFragment {
             }
         }, 1000);
     }
-
 }

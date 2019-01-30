@@ -14,7 +14,7 @@ public class SamplePagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragmentList;
     private List<String> titles;
 
-    public SamplePagerAdapter(FragmentManager fm, List fragmentList, List<String> titles) {
+    public SamplePagerAdapter(FragmentManager fm, List<Fragment> fragmentList, List<String> titles) {
         super(fm);
         this.fragmentList = fragmentList;
         this.titles = titles;

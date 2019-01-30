@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-
 /**
  * 多个Fragment切换
  */

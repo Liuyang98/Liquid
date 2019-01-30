@@ -63,7 +63,6 @@ public class LoadErrorFragment extends BaseFragment {
         });
     }
 
-
     private void showErrorView() {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
