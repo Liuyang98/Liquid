@@ -44,7 +44,6 @@ public class ViewUtil {
         }
 
         LiquidStyle style = LiquidStyle.getDefault();
-        Log.e(TAG, "params.asGif: "+params.asGif +"  :   (style.getLiquidLoader() != null)"+(style.getLiquidLoader() != null) );
 
         if (params.asGif) {
             if (style.getLiquidLoader() != null) {

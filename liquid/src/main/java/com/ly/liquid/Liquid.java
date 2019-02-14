@@ -20,20 +20,8 @@ import com.ly.liquid.pojo.LiquidStyle;
 public class Liquid {
     private static final String TAG = "Liquid";
     private static final int VIEW_LIQUID = R.id.liquid_view;
-    private volatile static Liquid defaultInstance;
     private static final LiquidStyle liStyle = LiquidStyle.getDefault();
     private LiquidParams params;
-
-    private static Liquid getDefault() {
-        if (defaultInstance == null) {
-            synchronized (Liquid.class) {
-                if (defaultInstance == null) {
-                    defaultInstance = new Liquid(new LiquidParams());
-                }
-            }
-        }
-        return defaultInstance;
-    }
 
     private Liquid(LiquidParams params) {
         this.params = params;
