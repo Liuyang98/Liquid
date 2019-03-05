@@ -33,17 +33,17 @@
        //显示默认风格的加载布局
        Liquid.showLoadingView(Activity activity);
        
-       Liquid.showLoadingView(ViewGroup viewGrouop);
+       Liquid.showLoadingView(ViewGroup viewGroup);
        
        //显示默认风格的异常布局
        Liquid.showErrorView(Activity activity);
        
-       Liquid.showErrorView(ViewGroup viewGrouop);
+       Liquid.showErrorView(ViewGroup viewGroup);
        
        //显示默认风格的自定义事务布局
        Liquid.showCustomView(Activity activity);
        
-       Liquid.showCustomView(ViewGroup viewGrouop);
+       Liquid.showCustomView(ViewGroup viewGroup);
 
        //创建独立风格的布局
        new Liquid.Builder()
