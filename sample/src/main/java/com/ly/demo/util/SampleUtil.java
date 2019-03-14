@@ -55,4 +55,16 @@ public class SampleUtil {
                 .build(activity)
                 .show();
     }
+
+    public static void showErrorLayout(Activity activity, int layoutId, View.OnClickListener clickListener) {
+        new Liquid.Builder()
+                .setText("网络异常")
+                .setTextSize(20)
+                .setTextColor(0xffdddddd)
+                .setImg(R.mipmap.trans_fail)
+                .setClickListener(clickListener)
+                .setLayoutId(layoutId)
+                .build(activity)
+                .show();
+    }
 }

@@ -36,7 +36,14 @@ public class Liquid {
             return;
         }
         Liquid.clear(params.parentLayout);
-        int clickRid = liStyle.getClickLayoutRes() == null ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
+
+        int clickRid;
+        if (params.layoutId != null) {
+            clickRid = params.layoutId;
+        } else {
+            clickRid = liStyle.getClickLayoutRes() == null ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
+        }
+
         View childView = LayoutInflater.from(params.parentLayout.getContext()).inflate(clickRid, null);
         ViewGroup.LayoutParams mParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         childView.setId(VIEW_LIQUID);
@@ -86,6 +93,11 @@ public class Liquid {
 
         public Builder setImg(int imgRes) {
             params.imgRes = imgRes;
+            return this;
+        }
+
+        public Builder setLayoutId(int layoutId) {
+            params.layoutId = layoutId;
             return this;
         }
 

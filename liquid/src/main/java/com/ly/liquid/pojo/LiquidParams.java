@@ -29,6 +29,8 @@ public class LiquidParams {
     //GIF图
     public boolean asGif;
 
+    public Integer layoutId;
+
     public LiquidParams() {
         interceptListener = InterceptListener.getInstance();
     }

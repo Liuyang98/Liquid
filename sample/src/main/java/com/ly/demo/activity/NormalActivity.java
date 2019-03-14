@@ -24,7 +24,7 @@ public class NormalActivity extends AppCompatActivity {
     }
 
     private void init() {
-        SampleUtil.showErrorLayout(this, new View.OnClickListener() {
+        SampleUtil.showErrorLayout(this, R.layout.liquid_custome_layout_error, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showLoading();
