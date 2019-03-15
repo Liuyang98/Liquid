@@ -41,7 +41,11 @@ public class Liquid {
         if (params.layoutId != null) {
             clickRid = params.layoutId;
         } else {
-            clickRid = liStyle.getClickLayoutRes() == null ? R.layout.liquid_default_layout_error : liStyle.getClickLayoutRes();
+            if (liStyle.getClickLayoutRes() == null) {
+                clickRid = R.layout.liquid_default_layout_error;
+            } else {
+                clickRid = liStyle.getClickLayoutRes();
+            }
         }
 
         View childView = LayoutInflater.from(params.parentLayout.getContext()).inflate(clickRid, null);
