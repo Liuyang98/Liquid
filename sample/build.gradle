@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.ly.demo"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
@@ -21,7 +20,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'com.google.android.material:material:1.1.0-alpha01'
+    implementation 'com.google.android.material:material:1.1.0-alpha09'
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     implementation project(':liquid')
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 }
